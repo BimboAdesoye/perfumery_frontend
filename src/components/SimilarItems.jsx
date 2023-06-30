@@ -1,34 +1,56 @@
+import "../styles/SimilarItems.css";
 import UseFetch from "../Hooks/UseFetch";
-import fiveStar from "../assets/Perfumery5starIcon.svg";
-import cart from "../assets/PerfumeryCart.svg";
-import "../styles/MalePerfumes.css";
+// import { useEffect, useState } from "react";
 import heartIcon from "../assets/PerfumeryHeartIcon.svg";
 import arrowIcon from "../assets/PerfumeryArrowIcon.svg";
 import { Link } from "react-router-dom";
+import fiveStar from "../assets/Perfumery5starIcon.svg";
+import cart from "../assets/PerfumeryCart.svg";
+// import axios from "axios";
 
-
-const MalePerfumes = () => {
+const SimilarItems = () => {
   const { data } = UseFetch(
-    "https://perfumery.onrender.com/perfumes/category/Male"
+    `https://perfumery.onrender.com/perfumes/category/Male`
   );
+
+  //   const [data, setData] = useState([]);
+
+  //   const getFetchedData = async () => {
+  //     try {
+  //       const fetchedUrl = await axios(
+  //         `https://perfumery.onrender.com/perfumes/category/${category}`
+  //       );
+  //       setData(fetchedUrl.data);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+
+  //   useEffect(() => {
+  //     getFetchedData();
+  //   }, [category]);
+
+  // console.log(category);
+
+  //   console.log(data);
 
   return (
     <div className="container">
       <div className="bg-white">
-        <div className="male-header p-3 d-flex justify-content-between">
-          <h5 className="male-heading">Male</h5>
+        <div className="p-3 d-flex justify-content-between">
+          <h5 className="male-heading">Other products you might like</h5>
           <div className="d-flex gap-2 align-items-center view-more">
             <p className="mb-0">View more</p>
             <img className="arrow-icon" src={arrowIcon} alt="" />
           </div>
         </div>
-        <div className="my-4 py-3 px-4 male-section">
+        <div className="my-4 py-3 px-4 male-section similar">
           {data.map((datum) => {
             const { image, title, label, price, _id } = datum;
             return (
               <div
                 key={_id}
-                className=" border rounded p-2 product m-auto shadow-sm"
+                className=" border rounded p-2 product new m-auto shadow-sm"
               >
                 <div className="img">
                   <Link to={`/SingleProduct/${_id}`}>
@@ -60,4 +82,4 @@ const MalePerfumes = () => {
   );
 };
 
-export default MalePerfumes;
+export default SimilarItems;

@@ -1,0 +1,7 @@
+.male-section.similar {
+  flex-wrap: nowrap;
+}
+
+.male-section.similar .product.new {
+  width: 349px;
+}

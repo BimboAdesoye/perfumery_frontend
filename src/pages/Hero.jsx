@@ -2,12 +2,12 @@ import "../styles/Hero.css";
 import truck from "../assets/PerfumeryHeroTruck.svg";
 import deliverySpeed from "../assets/PerfumeryHeroSpeed.svg";
 import payment from "../assets/PerfumeryHeroPay.svg";
-import price from "../assets/PerfumeryHeroPrice.svg";
+import priceIcon from "../assets/PerfumeryHeroPrice.svg";
 
 const Hero = () => {
   return (
     <div className="container">
-      <div className="my-5 d-flex justify-content-between">
+      <div className="d-none d-lg-block my-5 d-lg-flex justify-content-between">
         <div className="d-flex align-items-center gap-3">
           <img src={truck} alt="" />
           <div className="">
@@ -30,7 +30,7 @@ const Hero = () => {
           </div>
         </div>
         <div className="d-flex align-items-center gap-3">
-          <img src={price} alt="" />
+          <img src={priceIcon} alt="" />
           <div>
             <p className="font-w-bold">Lowest Price</p>
             <p>Best Deals</p>

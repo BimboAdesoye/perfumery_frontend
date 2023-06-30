@@ -6,18 +6,17 @@ import heartIcon from "../assets/PerfumeryHeartIcon.svg";
 import arrowIcon from "../assets/PerfumeryArrowIcon.svg";
 import { Link } from "react-router-dom";
 
-
-const MalePerfumes = () => {
+const ComboPerfumes = () => {
   const { data } = UseFetch(
-    "https://perfumery.onrender.com/perfumes/category/Male"
+    "https://perfumery.onrender.com/perfumes/category/Combo"
   );
 
   return (
-    <div className="container">
+    <div className="container my-5">
       <div className="bg-white">
         <div className="male-header p-3 d-flex justify-content-between">
-          <h5 className="male-heading">Male</h5>
-          <div className="d-flex gap-2 align-items-center view-more">
+          <h5 className="male-heading">Combo Packages</h5>
+          <div className="d-flex gap-3 align-items-center view-more">
             <p className="mb-0">View more</p>
             <img className="arrow-icon" src={arrowIcon} alt="" />
           </div>
@@ -60,4 +59,4 @@ const MalePerfumes = () => {
   );
 };
 
-export default MalePerfumes;
+export default ComboPerfumes;
