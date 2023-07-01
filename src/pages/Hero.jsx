@@ -9,11 +9,59 @@ import image1 from "../assets/perfumeryBannerImg1.svg";
 import image2 from "../assets/perfumeryBannerImg2.svg";
 import image3 from "../assets/PerfumeryBannerImg3.svg";
 import image4 from "../assets/PerfumeryBannerImg4.svg";
+import { useState } from "react";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
+// import Carousel2 from "../components/Carousel2";
+import Data from "../components/DB";
+
+const renderSlides = Data.map((datum) => {
+  const { id, name, img } = datum;
+  return (
+    <div
+      key={id}
+      className="d-flex align-items-center justify-content-between p-3"
+    >
+      <div>
+        <h1 className="carousel-heading">Best Selling</h1>
+        <p className="carousel-name">{name}</p>
+        <button className="carousel-btn">Shop Now</button>
+      </div>
+      <div>
+        <img src={img} alt="" />
+      </div>
+    </div>
+  );
+});
 
 const Hero = () => {
+  const [hidden, setHidden] = useState(true);
+  const [hidden2, setHidden2] = useState(true);
+  const [hidden3, setHidden3] = useState(true);
+  const [hidden4, setHidden4] = useState(true);
+
+  const handleHidden = () => {
+    setHidden(!hidden);
+  };
+
+  const handleHidden2 = () => {
+    setHidden2(!hidden2);
+  };
+  const handleHidden3 = () => {
+    setHidden3(!hidden3);
+  };
+  const handleHidden4 = () => {
+    setHidden4(!hidden4);
+  };
+
+  const [currentIndex, setCurrentIndex] = useState();
+  function handleChange(index) {
+    setCurrentIndex(index);
+  }
+
   return (
     <div className="hero pt-2 pb-3">
-      <div className="mycontainer hero-banner row h-50 m-auto ">
+      <div className="container hero-banner row h-50 m-auto ">
         <div className=" col-lg-2 bg-white content p-0 rounded d-none d-md-block d-lg-block">
           <h3 className="text-center banner-heading">Categories</h3>
           <ul className="text-center p-0 d-flex flex-column banner-list">
@@ -44,28 +92,54 @@ const Hero = () => {
           </ul>
         </div>
         <div className="rounded col-lg-7 bg-white content">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
-            autem doloremque similique cum minima ipsa itaque officia facere
-            iusto at debitis, accusantium corporis blanditiis non vel impedit
-            dicta molestias ipsum neque harum illo? Asperiores, officiis
-            praesentium quis tenetur ratione officia! Doloribus soluta nesciunt
-            nobis accusantium quisquam assumenda ducimus illo, nemo quia minima
-            dolores totam non ut? Exercitationem in dolores quia ad explicabo
-          </p>
+          <Carousel
+            showThumbs={false}
+            showArrows={false}
+            autoPlay={true}
+            infiniteLoop={true}
+            selectedItem={Data[currentIndex]}
+            onChange={handleChange}
+            className="carousel-container"
+          >
+            {renderSlides}
+          </Carousel>
         </div>
         <div className="border col-lg-3 content banner-images p-0 d-none d-md-block d-lg-grid">
-          <div>
+          <div
+            onMouseEnter={handleHidden}
+            onMouseLeave={handleHidden}
+            className={hidden ? "hide" : null}
+          >
             <img className="img-fluid bg-white" src={image1} alt="" />
+            <button className="btn1">30% Off</button>
+            <button className="btn2">Shop Now</button>
           </div>
-          <div>
+          <div
+            onMouseEnter={handleHidden2}
+            onMouseLeave={handleHidden2}
+            className={hidden2 ? "hide" : null}
+          >
             <img className="img-fluid bg-white" src={image2} alt="" />
+            <button className="btn1">30% Off</button>
+            <button className="btn2">Shop Now</button>
           </div>
-          <div>
+          <div
+            onMouseEnter={handleHidden3}
+            onMouseLeave={handleHidden3}
+            className={hidden3 ? "hide" : null}
+          >
             <img className="img-fluid bg-white" src={image3} alt="" />
+            <button className="btn1">30% Off</button>
+            <button className="btn2">Shop Now</button>
           </div>
-          <div>
+          <div
+            onMouseEnter={handleHidden4}
+            onMouseLeave={handleHidden4}
+            className={hidden4 ? "hide" : null}
+          >
             <img className="img-fluid bg-white" src={image4} alt="" />
+            <button className="btn1">30% Off</button>
+            <button className="btn2">Shop Now</button>
           </div>
         </div>
       </div>

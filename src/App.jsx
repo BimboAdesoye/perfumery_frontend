@@ -9,6 +9,7 @@ import PasswordReset from "./components/PasswordReset";
 import PasswordRecovery from "./components/PasswordRecovery";
 import SingleProduct from "./pages/SingleProduct";
 import Cart from "./components/Cart";
+import Carousel from "./components/Carousel2";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         {/* <Navbar></Navbar> */}
         <Routes>
           <Route index element={<Home />} />
+          <Route path="/Carousel" element={<Carousel />}></Route>
           <Route path="/SignIn" element={<SignIn />} />
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/PasswordReset" element={<PasswordReset />} />
