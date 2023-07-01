@@ -36,6 +36,7 @@
 .sign-up {
   background-color: #db9200;
   color: white;
+  outline: 1px solid black;
 }
 
 .search-div {
@@ -88,4 +89,25 @@
 
 .rotated .dropwdown-content {
   display: block;
+}
+
+.cart-link {
+  position: relative;
+}
+
+.cart-length {
+  align-items: center;
+  background-color: #db9200;
+  border-radius: 50%;
+  bottom: 20px;
+  color: white;
+  display: flex;
+  font-size: 13px;
+  height: 18px;
+  justify-content: center;
+  left: 16px;
+  padding: 3px;
+  position: absolute;
+  width: 18px;
+  z-index: 1;
 }

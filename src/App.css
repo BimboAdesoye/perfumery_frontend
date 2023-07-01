@@ -16,3 +16,8 @@ button {
   border: none;
   outline: none;
 }
+
+.mycontainer {
+  width: 93%;
+  margin: auto;
+}

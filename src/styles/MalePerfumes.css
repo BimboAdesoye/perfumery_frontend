@@ -54,6 +54,7 @@
 .buy-btn {
   border: none;
   padding: 12px 61px;
+  width: 50%;
   border-radius: 20px;
   background: var(--primary, #db9200);
   color: white;

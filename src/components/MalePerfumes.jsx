@@ -6,18 +6,22 @@ import heartIcon from "../assets/PerfumeryHeartIcon.svg";
 import arrowIcon from "../assets/PerfumeryArrowIcon.svg";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import CartContext from "../Hooks/CartContext";
+import { useContext } from "react";
 // import { useState } from "react";
 
-const MalePerfumes = ({ handleAddToCart }) => {
+const MalePerfumes = () => {
   const { data } = UseFetch(
     "https://perfumery.onrender.com/perfumes/category/Male"
   );
 
+  const { handleAddToCart } = useContext(CartContext);
   // const notify = () => {
   //   toast.success("An item has been added !", {
   //     position: toast.POSITION.TOP_CENTER,
   //   });
   // };
+
 
   return (
     <div className="container">

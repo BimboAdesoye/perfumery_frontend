@@ -8,8 +8,11 @@ import payment from "../assets/PerfumeryHeroPay.svg";
 import priceIcon from "../assets/PerfumeryHeroPrice.svg";
 import "../styles/SingleProduct.css";
 import SimilarItems from "../components/SimilarItems";
+import { useContext } from "react";
+import CartContext from "../Hooks/CartContext";
 
 const SingleProduct = () => {
+  const { handleAddToCart } = useContext(CartContext);
   const { id } = useParams();
   const { data: data1 } = UseFetch(
     `https://perfumery.onrender.com/perfumes/singlePerfume/${id}`
@@ -21,9 +24,9 @@ const SingleProduct = () => {
   return (
     <div>
       <Navbar />
-      <div className="d-md-flex d-lg-flex gap-4 my-5 container justify-content-between">
+      <div className="d-md-flex d-lg-flex gap-4 my-5 mycontainer justify-content-between">
         <div className="div-one rounded py-5">
-          <img className="img-fluid w-100" src={image} alt="" />
+          <img className="img-fluid w-100 singleprod-img" src={image} alt="" />
         </div>
         <div className="div-two rounded">
           <div className="one">
@@ -40,7 +43,12 @@ const SingleProduct = () => {
           </div>
           <div className="four d-flex gap-2 mt-5">
             <button className="product-shop">Shop Now</button>
-            <button className="product-add">Add to Cart</button>
+            <button
+              onClick={() => handleAddToCart(data1)}
+              className="product-add"
+            >
+              Add to Cart
+            </button>
           </div>
         </div>
         <div className="div-three rounded d-none d-lg-block d-lg-flex flex-column gap-5">

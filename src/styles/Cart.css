@@ -23,7 +23,7 @@
   padding: 3rem 1rem;
   width: 100%;
   border-radius: 8px;
-  /* border: 1px solid #db9200; */
+  border: 1px solid #db9200;
   font-family: Poppins;
 }
 
@@ -42,6 +42,12 @@
 
 .cart-item {
   /* border-bottom: 1px solid #db9200; */
+}
+
+.item-increase,
+.item-decrease,
+.remove-btn {
+  cursor: pointer;
 }
 
 .cart-items {
@@ -85,6 +91,14 @@
 
 .cart-math-number {
   font-size: 12px;
+  letter-spacing: 1.32px;
+}
+
+.remove-btn {
+  color: #747474;
+  font-size: 12px;
+  font-family: Poppins;
+  font-weight: 600;
   letter-spacing: 1.32px;
 }
 
@@ -239,4 +253,33 @@
   font-family: Poppins;
   font-weight: 500;
   letter-spacing: 1.32px;
+}
+
+@media screen and (max-width: 768px) {
+  .our-guarantees {
+    width: 100%;
+  }
+
+  .cart {
+    width: 100%;
+  }
+
+  .checkout {
+    width: 100%;
+  }
+
+  .guarantees {
+    border-radius: 8px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .guarantees .one,
+  .guarantees .two,
+  .guarantees .three {
+    border: 1px solid #db9200;
+    border-radius: 8px;
+  }
 }

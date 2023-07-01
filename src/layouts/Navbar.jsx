@@ -1,14 +1,16 @@
 import Logo from "../assets/PerfumeryLogo.svg";
 import "../styles/Navbar.css";
-import searchIcon from "../assets/material-symbols_search-rounded.svg";
 import cartIcon from "../assets/PerfumeryCartIcon.svg";
+import searchIcon from "../assets/material-symbols_search-rounded.svg";
 import profileIcon from "../assets/PerfumeryProfileIcon.svg";
 import notifIcon from "../assets/PerfumeryNotificationIcon.svg";
 import dropdownIcon from "../assets/expand_less_FILL0_wght400_GRAD0_opsz48.svg";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import CartContext from "../Hooks/CartContext";
 
 const Navbar = () => {
+  const { cartItems } = useContext(CartContext);
   const [dropped, setDropped] = useState(false);
   const navigate = useNavigate();
 
@@ -40,8 +42,11 @@ const Navbar = () => {
           <button className="search-btn text-white">Search</button>
         </div>
         <div className="sign-btns d-flex gap-4">
-          <Link to="/Cart">
+          <Link to="/Cart" className="text-decoration-none cart-link">
             <img src={cartIcon} alt="" />
+            {cartItems.length >= 1 && (
+              <span className="cart-length"> {cartItems.length}</span>
+            )}
           </Link>
           <img src={notifIcon} alt="" />
           <div className={`${genericClass} ${dropped ? "rotated" : null}`}>
@@ -64,14 +69,6 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      <div className="container w-100 d-flex d-md-none d-lg-none search-div mt-3">
-        <img className="searchIcon" src={searchIcon} alt="" />
-        <input
-          type="text"
-          className="w-100 px-5"
-          placeholder="Search products, brands and categories"
-        />
-      </div>
     </div>
   );
 };

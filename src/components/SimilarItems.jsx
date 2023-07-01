@@ -13,29 +13,8 @@ const SimilarItems = () => {
     `https://perfumery.onrender.com/perfumes/category/Male`
   );
 
-  //   const [data, setData] = useState([]);
-
-  //   const getFetchedData = async () => {
-  //     try {
-  //       const fetchedUrl = await axios(
-  //         `https://perfumery.onrender.com/perfumes/category/${category}`
-  //       );
-  //       setData(fetchedUrl.data);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-
-  //   useEffect(() => {
-  //     getFetchedData();
-  //   }, [category]);
-
-  // console.log(category);
-
-  //   console.log(data);
-
   return (
-    <div className="container">
+    <div className="mycontainer">
       <div className="bg-white">
         <div className="p-3 d-flex justify-content-between">
           <h5 className="male-heading">Other products you might like</h5>
@@ -69,7 +48,7 @@ const SimilarItems = () => {
                     <p className="mb-0 product-review">50 reviews</p>
                   </span>
                   <span className="d-none d-md-block d-lg-block d-md-flex d-lg-flex justify-content-between align-items-center mt-1">
-                    <button className="buy-btn">Buy Now</button>
+                    <button className="similar-btn">Buy Now</button>
                     <img src={cart} alt="" />
                   </span>
                 </div>

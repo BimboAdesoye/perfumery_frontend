@@ -1,15 +1,23 @@
-// import React from "react";
 import Navbar from "../layouts/Navbar";
 import Footer from "../layouts/Footer";
-import { useState } from "react";
+import { useContext } from "react";
 import "../styles/Cart.css";
 import EmptyCartIcon from "../assets/PerfumeryEmptyCartIcon.svg";
 import truck from "../assets/perfumerycarttruckIcon.svg";
 import gift from "../assets/PerfumerycartgiftIcon.svg";
 import arrowdown from "../assets/PerfumeryCartArrowdownIcon.svg";
 import nairaIcon from "../assets/perfumerynairaIcon.svg";
+import CartContext from "../Hooks/CartContext";
 
-const Cart = ({ cartItems }) => {
+const Cart = () => {
+  const {
+    cartItems,
+    handleIncrease,
+    handleDecrease,
+    totalPrice,
+    handleRemoveItem,
+  } = useContext(CartContext);
+
   return (
     <div className="basket">
       <Navbar />
@@ -20,7 +28,7 @@ const Cart = ({ cartItems }) => {
         </div>
         <div>
           {cartItems.length === 0 && (
-            <div className="empty-cart d-flex flex-column align-items-center justify-content-between my-5 gap-3 border">
+            <div className="empty-cart d-flex flex-column align-items-center justify-content-between my-5 gap-3">
               <img src={EmptyCartIcon} alt="" />
               <p className="fw-bold">Your cart is empty!</p>
               <p className="text-center">
@@ -30,8 +38,8 @@ const Cart = ({ cartItems }) => {
             </div>
           )}
         </div>
-        {cartItems.length > 0 && (
-          <div className="d-flex justify-content-between">
+        {cartItems.length >= 1 && (
+          <div className="d-md-flex d-lg-flex justify-content-between">
             <div className="cart">
               <div className="cart-items w-100">
                 <div className="d-flex justify-content-between align-items-center cart-items-heading p-3">
@@ -41,7 +49,7 @@ const Cart = ({ cartItems }) => {
                 </div>
                 <div>
                   {cartItems.map((cartItem) => {
-                    const { image, title, price, _id } = cartItem;
+                    const { image, title, price, _id, quantity } = cartItem;
                     return (
                       <div
                         key={_id}
@@ -51,10 +59,28 @@ const Cart = ({ cartItems }) => {
                           <img className="cart-img" src={image} alt="" />
                           <p className="cart-img-title">{title}</p>
                         </div>
-                        <div className="d-flex align-items-center justify-content-between cart-math">
-                          <p className="mb-0">-</p>
-                          <p className="mb-0 cart-math-number">1</p>
-                          <p className="mb-0">+</p>
+                        <div className="text-center">
+                          <div className="d-flex align-items-center justify-content-between cart-math">
+                            <p
+                              onClick={() => handleDecrease(cartItem)}
+                              className="mb-0 item-decrease"
+                            >
+                              -
+                            </p>
+                            <p className="mb-0 cart-math-number">{quantity}</p>
+                            <p
+                              onClick={() => handleIncrease(cartItem)}
+                              className="mb-0 item-increase"
+                            >
+                              +
+                            </p>
+                          </div>
+                          <p
+                            onClick={() => handleRemoveItem(cartItem)}
+                            className="remove-btn mb-0"
+                          >
+                            Remove
+                          </p>
                         </div>
                         <p className="cart-item-price">{price}</p>
                       </div>
@@ -88,7 +114,7 @@ const Cart = ({ cartItems }) => {
                 <h6 className="mb-0 total">Total</h6>
                 <span className="d-flex align-items-center total-price">
                   <img className="naira-checkout" src={nairaIcon} alt="" />
-                  <p className="mb-0">24,000</p>
+                  <p className="mb-0">{totalPrice}</p>
                 </span>
               </div>
               <div className="two d-flex justify-content-between align-items-center pb-3">
@@ -105,7 +131,7 @@ const Cart = ({ cartItems }) => {
 
         <div className="our-guarantees my-5">
           <h3 className="our-guarantees-heading">Our guarantees</h3>
-          <div className="guarantees d-flex">
+          <div className="guarantees d-lg-flex d-md-flex">
             <div className="one py-5 px-4  text-center">
               <h6>Premium Quality</h6>
               <p>
