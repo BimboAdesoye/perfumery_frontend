@@ -5,12 +5,19 @@ import "../styles/MalePerfumes.css";
 import heartIcon from "../assets/PerfumeryHeartIcon.svg";
 import arrowIcon from "../assets/PerfumeryArrowIcon.svg";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+// import { useState } from "react";
 
-
-const MalePerfumes = () => {
+const MalePerfumes = ({ handleAddToCart }) => {
   const { data } = UseFetch(
     "https://perfumery.onrender.com/perfumes/category/Male"
   );
+
+  // const notify = () => {
+  //   toast.success("An item has been added !", {
+  //     position: toast.POSITION.TOP_CENTER,
+  //   });
+  // };
 
   return (
     <div className="container">
@@ -47,10 +54,19 @@ const MalePerfumes = () => {
                     <p className="mb-0 product-review">50 reviews</p>
                   </span>
                   <span className="d-none d-md-block d-lg-block d-md-flex d-lg-flex justify-content-between align-items-center mt-1">
-                    <button className="buy-btn">Buy Now</button>
+                    <button
+                      onClick={() => {
+                        handleAddToCart(datum);
+                        // notify();
+                      }}
+                      className="buy-btn"
+                    >
+                      Buy Now
+                    </button>
                     <img src={cart} alt="" />
                   </span>
                 </div>
+                <ToastContainer />
               </div>
             );
           })}

@@ -1,5 +1,6 @@
 .male-section.similar {
   flex-wrap: nowrap;
+  overflow-x: scroll;
 }
 
 .male-section.similar .product.new {

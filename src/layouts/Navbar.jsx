@@ -40,7 +40,9 @@ const Navbar = () => {
           <button className="search-btn text-white">Search</button>
         </div>
         <div className="sign-btns d-flex gap-4">
-          <img src={cartIcon} alt="" />
+          <Link to="/Cart">
+            <img src={cartIcon} alt="" />
+          </Link>
           <img src={notifIcon} alt="" />
           <div className={`${genericClass} ${dropped ? "rotated" : null}`}>
             <div onClick={handleDrop} className="drop">

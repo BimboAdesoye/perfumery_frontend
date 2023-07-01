@@ -6,13 +6,13 @@ import MalePerfumes from "./MalePerfumes";
 import FemalePerfumes from "./FemalePerfumes";
 import ComboPerfumes from "./ComboPerfumes";
 
-const Home = () => {
+const Home = ({ handleAddToCart, cartItems }) => {
   return (
     <div className="Home">
       <Navbar></Navbar>
       <div>
-        <Hero />
-        <MalePerfumes />
+        <Hero/>
+        <MalePerfumes handleAddToCart={handleAddToCart} />
         <FemalePerfumes />
         <ComboPerfumes />
       </div>
