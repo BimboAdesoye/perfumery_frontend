@@ -7,12 +7,20 @@ import arrowIcon from "../assets/PerfumeryArrowIcon.svg";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import CartContext from "../Hooks/CartContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ComboPerfumes = () => {
   const { handleAddToCart } = useContext(CartContext);
   const { data } = UseFetch(
     "https://perfumery.onrender.com/perfumes/category/Combo"
   );
+
+  const notify = () => {
+    toast.success("An item has been added !", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+  };
 
   return (
     <div className="container my-5">
@@ -49,14 +57,17 @@ const ComboPerfumes = () => {
                     <p className="mb-0 product-review">50 reviews</p>
                   </span>
                   <span className="d-none d-md-block d-lg-block d-md-flex d-lg-flex justify-content-between align-items-center mt-1">
-                    <button
-                      onClick={() => handleAddToCart(datum)}
-                      className="buy-btn"
+                    <button className="buy-btn">Buy Now</button>
+                    <div
+                      onClick={() => {
+                        handleAddToCart(datum);
+                        notify();
+                      }}
                     >
-                      Buy Now
-                    </button>
-                    <img src={cart} alt="" />
+                      <img src={cart} alt="" />
+                    </div>
                   </span>
+                  <ToastContainer/>
                 </div>
               </div>
             );

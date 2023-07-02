@@ -6,9 +6,9 @@ import heartIcon from "../assets/PerfumeryHeartIcon.svg";
 import arrowIcon from "../assets/PerfumeryArrowIcon.svg";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import CartContext from "../Hooks/CartContext";
 import { useContext } from "react";
-// import { useState } from "react";
 
 const MalePerfumes = () => {
   const { data } = UseFetch(
@@ -16,12 +16,11 @@ const MalePerfumes = () => {
   );
 
   const { handleAddToCart } = useContext(CartContext);
-  // const notify = () => {
-  //   toast.success("An item has been added !", {
-  //     position: toast.POSITION.TOP_CENTER,
-  //   });
-  // };
-
+  const notify = () => {
+    toast.success("An item has been added !", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+  };
 
   return (
     <div className="container">
@@ -58,16 +57,15 @@ const MalePerfumes = () => {
                     <p className="mb-0 product-review">50 reviews</p>
                   </span>
                   <span className="d-none d-md-block d-lg-block d-md-flex d-lg-flex justify-content-between align-items-center mt-1">
-                    <button
+                    <button className="buy-btn">Buy Now</button>
+                    <div
                       onClick={() => {
                         handleAddToCart(datum);
-                        // notify();
+                        notify();
                       }}
-                      className="buy-btn"
                     >
-                      Buy Now
-                    </button>
-                    <img src={cart} alt="" />
+                      <img src={cart} alt="" />
+                    </div>
                   </span>
                 </div>
                 <ToastContainer />

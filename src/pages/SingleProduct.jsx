@@ -10,6 +10,8 @@ import "../styles/SingleProduct.css";
 import SimilarItems from "../components/SimilarItems";
 import { useContext } from "react";
 import CartContext from "../Hooks/CartContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SingleProduct = () => {
   const { handleAddToCart } = useContext(CartContext);
@@ -19,7 +21,11 @@ const SingleProduct = () => {
   );
   const { image, title, description, price, category } = data1;
 
-  //   const {data: data2} = UseFetch()
+  const notify = () => {
+    toast.success("An item has been added !", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+  };
 
   return (
     <div>
@@ -44,11 +50,15 @@ const SingleProduct = () => {
           <div className="four d-flex gap-2 mt-5">
             <button className="product-shop">Shop Now</button>
             <button
-              onClick={() => handleAddToCart(data1)}
+              onClick={() => {
+                handleAddToCart(data1);
+                notify();
+              }}
               className="product-add"
             >
               Add to Cart
             </button>
+            <ToastContainer />
           </div>
         </div>
         <div className="div-three rounded d-none d-lg-block d-lg-flex flex-column gap-5">

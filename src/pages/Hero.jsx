@@ -12,7 +12,6 @@ import image4 from "../assets/PerfumeryBannerImg4.svg";
 import { useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-// import Carousel2 from "../components/Carousel2";
 import Data from "../components/DB";
 
 const renderSlides = Data.map((datum) => {
@@ -20,14 +19,14 @@ const renderSlides = Data.map((datum) => {
   return (
     <div
       key={id}
-      className="d-flex align-items-center justify-content-between p-3"
+      className="row align-items-center justify-content-between p-lg-3 renderSlides"
     >
-      <div>
+      <div className="col-sm-5 col-lg-6 col-md-6">
         <h1 className="carousel-heading">Best Selling</h1>
         <p className="carousel-name">{name}</p>
         <button className="carousel-btn">Shop Now</button>
       </div>
-      <div>
+      <div className="col-sm-7 col-lg-6 col-md-6">
         <img src={img} alt="" />
       </div>
     </div>
@@ -61,8 +60,16 @@ const Hero = () => {
 
   return (
     <div className="hero pt-2 pb-3">
-      <div className="container hero-banner row h-50 m-auto ">
-        <div className=" col-lg-2 bg-white content p-0 rounded d-none d-md-block d-lg-block">
+      <div className="container w-100 d-flex d-md-none d-lg-none search-div bg-white my-3">
+        <img className="searchIcon" src={searchIcon} alt="" />
+        <input
+          type="text"
+          className="w-100 px-5"
+          placeholder="Search products, brands and categories"
+        />
+      </div>
+      <div className="container hero-banner row h-50 m-auto">
+        <div className=" col-lg-2 bg-white content p-0 rounded d-none d-md-none d-lg-block">
           <h3 className="text-center banner-heading">Categories</h3>
           <ul className="text-center p-0 d-flex flex-column banner-list">
             <li className="list-unstyled">
@@ -95,7 +102,7 @@ const Hero = () => {
           <Carousel
             showThumbs={false}
             showArrows={false}
-            autoPlay={true}
+            autoPlay={false}
             infiniteLoop={true}
             selectedItem={Data[currentIndex]}
             onChange={handleChange}
@@ -104,7 +111,7 @@ const Hero = () => {
             {renderSlides}
           </Carousel>
         </div>
-        <div className="border col-lg-3 content banner-images p-0 d-none d-md-block d-lg-grid">
+        <div className="border col-lg-3 content banner-images p-0 d-none d-md-none d-lg-grid">
           <div
             onMouseEnter={handleHidden}
             onMouseLeave={handleHidden}
@@ -142,14 +149,6 @@ const Hero = () => {
             <button className="btn2">Shop Now</button>
           </div>
         </div>
-      </div>
-      <div className="container w-100 d-flex d-md-none d-lg-none search-div bg-white">
-        <img className="searchIcon" src={searchIcon} alt="" />
-        <input
-          type="text"
-          className="w-100 px-5"
-          placeholder="Search products, brands and categories"
-        />
       </div>
       <div className="container d-none d-lg-block my-5 d-lg-flex justify-content-between">
         <div className="d-flex align-items-center gap-3">
