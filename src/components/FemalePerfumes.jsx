@@ -4,6 +4,7 @@ import cart from "../assets/PerfumeryCart.svg";
 import "../styles/MalePerfumes.css";
 import heartIcon from "../assets/PerfumeryHeartIcon.svg";
 import arrowIcon from "../assets/PerfumeryArrowIcon.svg";
+import nairaIcon from "../assets/perfumerynairaIcon.svg";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import CartContext from "../Hooks/CartContext";
@@ -56,14 +57,22 @@ const FemalePerfumes = () => {
                     <p className="product-title mb-0">{title}</p>
                     <p className="product-label mb-0">{label}</p>
                   </div>
-                  <p className="product-price mb-0">{price}</p>
+                  <div className="d-flex align-items-center gap-1">
+                    <img
+                      className="product-price-icon"
+                      src={nairaIcon}
+                      alt=""
+                    />
+                    <p className="product-price mb-0">{price}</p>
+                  </div>
                   <span className="d-flex gap-5 align-items-center">
                     <img src={fiveStar} alt="" />
                     <p className="mb-0 product-review">50 reviews</p>
                   </span>
                   <span className="d-none d-md-block d-lg-block d-md-flex d-lg-flex justify-content-between align-items-center mt-1">
                     <button className="buy-btn">Buy Now</button>
-                    <div className="user-select-auto"
+                    <div
+                      className="user-select-auto"
                       onClick={() => {
                         handleAddToCart(datum);
                         notify();

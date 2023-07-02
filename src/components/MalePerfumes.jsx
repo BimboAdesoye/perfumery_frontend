@@ -4,6 +4,7 @@ import cart from "../assets/PerfumeryCart.svg";
 import "../styles/MalePerfumes.css";
 import heartIcon from "../assets/PerfumeryHeartIcon.svg";
 import arrowIcon from "../assets/PerfumeryArrowIcon.svg";
+import nairaIcon from "../assets/perfumerynairaIcon.svg";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -57,7 +58,10 @@ const MalePerfumes = () => {
                     <p className="product-title mb-0">{title}</p>
                     <p className="product-label mb-0">{label}</p>
                   </div>
-                  <p className="product-price mb-0">{price}</p>
+                  <div className="d-flex align-items-center gap-1">
+                    <img className="product-price-icon" src={nairaIcon} alt="" />
+                    <p className="product-price mb-0">{price}</p>
+                  </div>
                   <span className="d-flex gap-5 align-items-center">
                     <img src={fiveStar} alt="" />
                     <p className="mb-0 product-review">50 reviews</p>

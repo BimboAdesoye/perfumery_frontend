@@ -45,6 +45,10 @@
   text-decoration-line: strikethrough;
 }
 
+.product-price-icon {
+  width: 20px;
+}
+
 .product-review {
   color: #000;
   font-size: 14px;

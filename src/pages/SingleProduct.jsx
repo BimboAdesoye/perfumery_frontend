@@ -45,7 +45,7 @@ const SingleProduct = () => {
           </div>
           <div className="three">
             <h6 className="product-price-heading">Price</h6>
-            <p className="product-price">{price}</p>
+            <p className="product-price">N{price}</p>
           </div>
           <div className="four d-flex gap-2 mt-5">
             <button className="product-shop">Shop Now</button>
