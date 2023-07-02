@@ -82,7 +82,14 @@ const Cart = () => {
                             Remove
                           </p>
                         </div>
-                        <p className="cart-item-price">{price}</p>
+                        <div className="d-flex gap-1 align-items-center">
+                          <img
+                            className="cart-item-price-icon"
+                            src={nairaIcon}
+                            alt=""
+                          />
+                          <p className="cart-item-price mb-0">{price}</p>
+                        </div>
                       </div>
                     );
                   })}

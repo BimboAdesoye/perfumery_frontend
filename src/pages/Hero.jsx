@@ -102,7 +102,7 @@ const Hero = () => {
           <Carousel
             showThumbs={false}
             showArrows={false}
-            autoPlay={false}
+            autoPlay={true}
             infiniteLoop={true}
             selectedItem={Data[currentIndex]}
             onChange={handleChange}

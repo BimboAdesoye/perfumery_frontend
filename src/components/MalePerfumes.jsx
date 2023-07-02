@@ -8,14 +8,16 @@ import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CartContext from "../Hooks/CartContext";
+import ClipLoader from "react-spinners/ClipLoader";
 import { useContext } from "react";
 
 const MalePerfumes = () => {
-  const { data } = UseFetch(
+  const { handleAddToCart } = useContext(CartContext);
+
+  const { data, loading, error } = UseFetch(
     "https://perfumery.onrender.com/perfumes/category/Male"
   );
 
-  const { handleAddToCart } = useContext(CartContext);
   const notify = () => {
     toast.success("An item has been added !", {
       position: toast.POSITION.TOP_CENTER,
@@ -26,7 +28,11 @@ const MalePerfumes = () => {
     <div className="container">
       <div className="bg-white">
         <div className="male-header p-3 d-flex justify-content-between">
-          <h5 className="male-heading">Male</h5>
+          <div className="d-flex gap-2">
+            <h5 className="male-heading">Male</h5>
+            {loading && <ClipLoader color={"red"} size={50} />}
+            {error && <h2>{error.message}</h2>}
+          </div>
           <div className="d-flex gap-2 align-items-center view-more">
             <p className="mb-0">View more</p>
             <img className="arrow-icon" src={arrowIcon} alt="" />

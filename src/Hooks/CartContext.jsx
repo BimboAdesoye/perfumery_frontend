@@ -9,24 +9,22 @@ export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(cartItemsFromLocalStorage);
 
   useEffect(() => {
-    localStorage.setItem("cartItem", JSON.stringify(cartItems));
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
 
   const handleAddToCart = (product) => {
-    console.log('before adding:', cartItems)
     const selectedItem = cartItems.find((item) => item.id === product.id);
     if (selectedItem) {
       setCartItems(
-        cartItems.map((singleItem) =>
-          singleItem.id === product.id
+        cartItems.map((singleItem) => {
+          return singleItem.id === product.id
             ? { ...selectedItem, quantity: selectedItem.quantity + 1 }
-            : singleItem
-        )
+            : singleItem;
+        })
       );
     } else {
       setCartItems([...cartItems, { ...product, quantity: 1 }]);
     }
-    console.log('after adding:', cartItems)
   };
 
   const handleIncrease = (product) => {
@@ -63,10 +61,13 @@ export const CartProvider = ({ children }) => {
     setCartItems(cartItems.filter((oneItem) => oneItem.id !== product.id));
   };
 
-  const totalPrice = cartItems.reduce(
-    (price, item) => price + item.quantity * item.price,
-    0
-  );
+  const totalPrice = cartItems.reduce((total, item) => {
+    return total + item.price * item.quantity;
+  }, 0);
+  // let total = 0;
+  // const totalPrice = cartItems.forEach((item) => {
+  //   return total += item.price * item.quantity;
+  // });
 
   return (
     <CartContext.Provider

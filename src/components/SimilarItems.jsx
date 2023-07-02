@@ -1,15 +1,14 @@
 import "../styles/SimilarItems.css";
 import UseFetch from "../Hooks/UseFetch";
-// import { useEffect, useState } from "react";
 import heartIcon from "../assets/PerfumeryHeartIcon.svg";
 import arrowIcon from "../assets/PerfumeryArrowIcon.svg";
 import { Link } from "react-router-dom";
 import fiveStar from "../assets/Perfumery5starIcon.svg";
 import cart from "../assets/PerfumeryCart.svg";
-// import axios from "axios";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const SimilarItems = () => {
-  const { data } = UseFetch(
+  const { data, loading, error } = UseFetch(
     `https://perfumery.onrender.com/perfumes/category/Male`
   );
 
@@ -17,7 +16,11 @@ const SimilarItems = () => {
     <div className="mycontainer">
       <div className="bg-white">
         <div className="p-3 d-flex justify-content-between">
-          <h5 className="male-heading">Other products you might like</h5>
+          <div className="d-flex gap-2">
+            <h5 className="male-heading">Other products you might like</h5>
+            {loading && <ClipLoader color={"red"} size={50} />}
+            {error && <h2>{error.message}</h2>}
+          </div>
           <div className="d-flex gap-2 align-items-center view-more">
             <p className="mb-0">View more</p>
             <img className="arrow-icon" src={arrowIcon} alt="" />

@@ -25,7 +25,7 @@ const Navbar = () => {
   const genericClass = "dropdown";
 
   return (
-    <div className="bg-white">
+    <div className="bg-white sticky-top">
       <nav className="nav container d-flex justify-content-between align-items-center">
         <Link to="/">
           <img src={Logo} alt="" />

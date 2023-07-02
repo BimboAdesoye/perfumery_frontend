@@ -8,11 +8,12 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import CartContext from "../Hooks/CartContext";
 import { ToastContainer, toast } from "react-toastify";
+import ClipLoader from "react-spinners/ClipLoader";
 import "react-toastify/dist/ReactToastify.css";
 
 const FemalePerfumes = () => {
   const { handleAddToCart } = useContext(CartContext);
-  const { data } = UseFetch(
+  const { data, loading, error } = UseFetch(
     "https://perfumery.onrender.com/perfumes/category/Female"
   );
 
@@ -26,7 +27,11 @@ const FemalePerfumes = () => {
     <div className="container my-5">
       <div className="bg-white">
         <div className="male-header p-3 d-flex justify-content-between">
-          <h5 className="male-heading">Female</h5>
+          <div className="d-flex gap-2">
+            <h5 className="male-heading">Female</h5>
+            {loading && <ClipLoader color={"red"} size={50} />}
+            {error && <h2>{error.message}</h2>}
+          </div>
           <div className="d-flex gap-3 align-items-center view-more">
             <p className="mb-0">View more</p>
             <img className="arrow-icon" src={arrowIcon} alt="" />
@@ -58,7 +63,7 @@ const FemalePerfumes = () => {
                   </span>
                   <span className="d-none d-md-block d-lg-block d-md-flex d-lg-flex justify-content-between align-items-center mt-1">
                     <button className="buy-btn">Buy Now</button>
-                    <div
+                    <div className="user-select-auto"
                       onClick={() => {
                         handleAddToCart(datum);
                         notify();
@@ -67,7 +72,7 @@ const FemalePerfumes = () => {
                       <img src={cart} alt="" />
                     </div>
                   </span>
-                    <ToastContainer/>
+                  <ToastContainer />
                 </div>
               </div>
             );

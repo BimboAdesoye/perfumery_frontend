@@ -110,6 +110,11 @@
   letter-spacing: 1.87px;
 }
 
+.cart-item-price-icon {
+  width: 15px;
+  color: #747474;
+}
+
 .cart-gift {
   border-radius: 8px;
   border: 2px solid #db9200;
@@ -186,7 +191,7 @@
   width: 20.938px;
   height: 20.941px;
   flex-shrink: 0;
-  color: #000;
+  color: black;
 }
 
 .checkout .vat {
