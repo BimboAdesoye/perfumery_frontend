@@ -28,7 +28,7 @@ const Navbar = () => {
     <div className="bg-white sticky-top">
       <nav className="nav container d-flex justify-content-between align-items-center">
         <Link to="/">
-          <img src={Logo} alt="" />
+          <img className="navbar-logo" src={Logo} alt="" />
         </Link>
         <div className="search-panel d-lg-flex d-md-flex d-none d-md-block d-lg-block  gap-2">
           <div className="w-100 d-flex search-div">

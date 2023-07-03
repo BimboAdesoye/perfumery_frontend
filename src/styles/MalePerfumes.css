@@ -83,6 +83,9 @@
   cursor: pointer;
 }
 
+.addToCartIcon {
+  cursor: pointer;
+}
 
 @media screen and (max-width: 992px) {
   .male-section .product {

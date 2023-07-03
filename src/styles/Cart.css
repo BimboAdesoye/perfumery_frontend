@@ -288,3 +288,24 @@
     border-radius: 8px;
   }
 }
+
+@media screen and (max-width: 576px) {
+  .giftIcon {
+    width: 28.438px;
+  }
+
+  .truckIcon {
+    width: 25px;
+  }
+
+  .checkout .total,
+  .checkout .orders,
+  .checkout .total-price {
+    font-size: 12px;
+  }
+
+  .checkout .naira-checkout,
+  .checkout .ordersIcon {
+    width: 12px;
+  }
+}

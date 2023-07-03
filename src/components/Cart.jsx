@@ -49,7 +49,7 @@ const Cart = () => {
           <div className="d-md-flex d-lg-flex justify-content-between">
             <div className="cart">
               <div className="cart-items w-100">
-                <div className="d-flex justify-content-between align-items-center cart-items-heading p-3">
+                <div className="d-none d-md-block d-lg-block d-md-flex d-lg-flex justify-content-between align-items-center cart-items-heading p-3">
                   <p className="mb-0">Product</p>
                   <p className="mb-0">Quantity</p>
                   <p className="mb-0">Total</p>
@@ -104,7 +104,7 @@ const Cart = () => {
               </div>
               <div className="my-3 cart-gift w-100 d-flex justify-content-between align-items-center p-4">
                 <div className="d-flex gap-3 align-items-center">
-                  <img src={gift} alt="" />
+                  <img className="giftIcon" src={gift} alt="" />
                   <p className="mb-0">
                     <span className="span">Do you want a gift wrap? </span>
                     <span>
@@ -113,18 +113,18 @@ const Cart = () => {
                     </span>
                   </p>
                 </div>
-                <button>Add a gift wrap</button>
+                <button className="d-none d-md-block d-lg-block">Add a gift wrap</button>
               </div>
               <div className="my-3 d-flex w-100 justify-content-between align-items-center p-4 cart-shipping">
                 <div className="d-flex gap-3 align-items-center">
-                  <img src={truck} alt="" />
+                  <img className="truckIcon" src={truck} alt="" />
                   <span>Estimate Shipping</span>
                 </div>
                 <img src={arrowdown} alt="" />
               </div>
             </div>
             <div className="checkout d-flex flex-column gap-4">
-              <div className="one d-flex justify-content-between align-items-center">
+              <div className="one d-flex justify-content-between align-items-center pb-2">
                 <h6 className="mb-0 total">Total</h6>
                 <span className="d-flex align-items-center total-price">
                   <img className="naira-checkout" src={nairaIcon} alt="" />
@@ -133,7 +133,7 @@ const Cart = () => {
               </div>
               <div className="two d-flex justify-content-between align-items-center pb-3">
                 <p className="mb-0 orders">Orders Instructions</p>
-                <img src={arrowdown} alt="" />
+                <img className="ordersIcon" src={arrowdown} alt="" />
               </div>
               <div className="text-center">
                 <p className="vat">VAT and shipping calculated at checkout</p>

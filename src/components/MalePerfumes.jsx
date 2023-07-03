@@ -74,7 +74,7 @@ const MalePerfumes = () => {
                         notify();
                       }}
                     >
-                      <img src={cart} alt="" />
+                      <img className="addToCartIcon" src={cart} alt="" />
                     </div>
                   </span>
                 </div>

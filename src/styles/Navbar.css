@@ -111,3 +111,15 @@
   width: 18px;
   z-index: 1;
 }
+
+@media screen and (max-width: 576px) {
+  .navbar-logo {
+    width: 74px;
+  }
+
+  .cartIcon,
+  .searchIcon,
+  .profileIcon {
+    width: 25.007px;
+  }
+}

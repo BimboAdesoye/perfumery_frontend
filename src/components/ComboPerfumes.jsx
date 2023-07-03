@@ -77,7 +77,7 @@ const ComboPerfumes = () => {
                         notify();
                       }}
                     >
-                      <img src={cart} alt="" />
+                      <img className="addToCartIcon" src={cart} alt="" />
                     </div>
                   </span>
                   <ToastContainer />
