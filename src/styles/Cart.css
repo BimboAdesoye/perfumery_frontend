@@ -300,12 +300,22 @@
 
   .checkout .total,
   .checkout .orders,
-  .checkout .total-price {
-    font-size: 12px;
+  .checkout .total-price,
+  .cart-item-price {
+    font-size: 14px;
   }
 
   .checkout .naira-checkout,
-  .checkout .ordersIcon {
+  .checkout .ordersIcon,
+  .cart-item-price-icon {
     width: 12px;
+  }
+
+  .welcome-heading {
+    font-size: 32px;
+  }
+
+  .welcome-sub-heading {
+    font-size: 16px;
   }
 }

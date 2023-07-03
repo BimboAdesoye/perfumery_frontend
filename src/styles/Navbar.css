@@ -122,4 +122,9 @@
   .profileIcon {
     width: 25.007px;
   }
+
+  .nav {
+    width: 90%;
+    margin: auto;
+  }
 }
