@@ -1,6 +1,6 @@
 import Navbar from "../layouts/Navbar";
 import Footer from "../layouts/Footer";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import "../styles/Cart.css";
 import EmptyCartIcon from "../assets/PerfumeryEmptyCartIcon.svg";
 import truck from "../assets/perfumerycarttruckIcon.svg";
@@ -17,6 +17,13 @@ const Cart = () => {
     totalPrice,
     handleRemoveItem,
   } = useContext(CartContext);
+
+   useEffect(() => {
+     window.scrollTo({
+       top: 0,
+       behavior: "smooth",
+     });
+   }, []);
 
   return (
     <div className="basket">

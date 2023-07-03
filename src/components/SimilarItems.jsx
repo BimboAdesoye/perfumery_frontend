@@ -8,10 +8,13 @@ import fiveStar from "../assets/Perfumery5starIcon.svg";
 import cart from "../assets/PerfumeryCart.svg";
 import ClipLoader from "react-spinners/ClipLoader";
 
-const SimilarItems = () => {
+const SimilarItems = ({ category }) => {
   const { data, loading, error } = UseFetch(
-    `https://perfumery.onrender.com/perfumes/category/Male`
+    `https://perfumery.onrender.com/perfumes/category/${category}`
   );
+
+  console.log(category);
+  console.log(data);
 
   return (
     <div className="mycontainer">

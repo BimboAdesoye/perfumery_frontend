@@ -42,7 +42,7 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length === 0) {
       console.log("Form is valid");

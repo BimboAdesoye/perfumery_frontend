@@ -8,7 +8,7 @@ import payment from "../assets/PerfumeryHeroPay.svg";
 import priceIcon from "../assets/PerfumeryHeroPrice.svg";
 import "../styles/SingleProduct.css";
 import SimilarItems from "../components/SimilarItems";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import CartContext from "../Hooks/CartContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -26,6 +26,13 @@ const SingleProduct = () => {
       position: toast.POSITION.TOP_CENTER,
     });
   };
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
 
   return (
     <div>

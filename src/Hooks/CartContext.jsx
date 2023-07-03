@@ -13,11 +13,11 @@ export const CartProvider = ({ children }) => {
   }, [cartItems]);
 
   const handleAddToCart = (product) => {
-    const selectedItem = cartItems.find((item) => item.id === product.id);
+    const selectedItem = cartItems.find((item) => item._id === product._id);
     if (selectedItem) {
       setCartItems(
         cartItems.map((singleItem) => {
-          return singleItem.id === product.id
+          return singleItem._id === product._id
             ? { ...selectedItem, quantity: selectedItem.quantity + 1 }
             : singleItem;
         })
@@ -25,14 +25,15 @@ export const CartProvider = ({ children }) => {
     } else {
       setCartItems([...cartItems, { ...product, quantity: 1 }]);
     }
+    console.log(cartItems);
   };
 
   const handleIncrease = (product) => {
-    const selectedItem = cartItems.find((item) => item.id === product.id);
+    const selectedItem = cartItems.find((item) => item._id === product._id);
     if (selectedItem) {
       setCartItems(
         cartItems.map((singleItem) =>
-          singleItem.id === product.id
+          singleItem._id === product._id
             ? { ...selectedItem, quantity: selectedItem.quantity + 1 }
             : singleItem
         )
@@ -41,15 +42,15 @@ export const CartProvider = ({ children }) => {
   };
 
   const handleDecrease = (product) => {
-    const selectedItem = cartItems.find((item) => item.id === product.id);
+    const selectedItem = cartItems.find((item) => item._id === product._id);
     if (selectedItem.quantity === 1) {
       setCartItems(
-        cartItems.filter((oneItem) => oneItem.id !== selectedItem.id)
+        cartItems.filter((oneItem) => oneItem._id !== selectedItem._id)
       );
     } else {
       setCartItems(
         cartItems.map((singleItem) =>
-          singleItem.id === product.id
+          singleItem._id === product._id
             ? { ...selectedItem, quantity: selectedItem.quantity - 1 }
             : singleItem
         )
@@ -58,7 +59,7 @@ export const CartProvider = ({ children }) => {
   };
 
   const handleRemoveItem = (product) => {
-    setCartItems(cartItems.filter((oneItem) => oneItem.id !== product.id));
+    setCartItems(cartItems.filter((oneItem) => oneItem._id !== product._id));
   };
 
   const totalPrice = cartItems.reduce((total, item) => {
