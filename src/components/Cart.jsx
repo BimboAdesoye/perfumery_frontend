@@ -18,12 +18,14 @@ const Cart = () => {
     handleRemoveItem,
   } = useContext(CartContext);
 
-   useEffect(() => {
-     window.scrollTo({
-       top: 0,
-       behavior: "smooth",
-     });
-   }, []);
+  console.log(cartItems);
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
 
   return (
     <div className="basket">
@@ -113,7 +115,9 @@ const Cart = () => {
                     </span>
                   </p>
                 </div>
-                <button className="d-none d-md-block d-lg-block">Add a gift wrap</button>
+                <button className="d-none d-md-block d-lg-block">
+                  Add a gift wrap
+                </button>
               </div>
               <div className="my-3 d-flex w-100 justify-content-between align-items-center p-4 cart-shipping">
                 <div className="d-flex gap-3 align-items-center">

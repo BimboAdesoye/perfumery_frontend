@@ -1,15 +1,18 @@
 import Logo from "../assets/PerfumeryLogo.svg";
 import "../styles/Navbar.css";
 import cartIcon from "../assets/PerfumeryCartIcon.svg";
-import searchIcon from "../assets/material-symbols_search-rounded.svg";
 import profileIcon from "../assets/PerfumeryProfileIcon.svg";
 import notifIcon from "../assets/PerfumeryNotificationIcon.svg";
 import dropdownIcon from "../assets/expand_less_FILL0_wght400_GRAD0_opsz48.svg";
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import CartContext from "../Hooks/CartContext";
+import SearchBar from "../components/SearchBar";
 
 const Navbar = () => {
+  // const [searchTerm, setSearchTerm] = useState("");
+  // const [searchResults, setSearchResults] = useState([]);
+  // const [searchButtonClicked, setSearchButtonClicked] = useState(false);
   const { cartItems } = useContext(CartContext);
   const [dropped, setDropped] = useState(false);
   const navigate = useNavigate();
@@ -22,6 +25,43 @@ const Navbar = () => {
     navigate("./SignIn");
   }
 
+  // function handleSearch() {
+  //   cartItems
+  //     .filter((item) => {
+  //       if (searchTerm == "") {
+  //         return item;
+  //       } else if (
+  //         item.title.toLowerCase().includes(searchTerm.toLowerCase())
+  //       ) {
+  //         return item;
+  //       }
+  //     })
+  //     .map((item) => {
+  //       const { _id, title } = item;
+  //       return (
+  //         <Link key={_id} to={`/SingleProduct/${_id}`}>
+  //           {title}
+  //         </Link>
+  //       );
+  //     });
+  // }
+
+  // const handleSearchButtonClick = () => {
+  //   setSearchButtonClicked(true);
+  //   handleSearch();
+  // };
+
+  // function handleSearch() {
+  //   if (searchTerm === "" && !searchButtonClicked) {
+  //     setSearchResults([]);
+  //     return;
+  //   }
+  //   const filteredItems = cartItems.filter((item) =>
+  //     item.title.toLowerCase().includes(searchTerm.toLowerCase())
+  //   );
+  //   setSearchResults(filteredItems);
+  // }
+
   const genericClass = "dropdown";
 
   return (
@@ -30,17 +70,7 @@ const Navbar = () => {
         <Link to="/">
           <img className="navbar-logo" src={Logo} alt="" />
         </Link>
-        <div className="search-panel d-lg-flex d-md-flex d-none d-md-block d-lg-block  gap-2">
-          <div className="w-100 d-flex search-div">
-            <img className="searchIcon" src={searchIcon} alt="" />
-            <input
-              type="text"
-              className="w-100 px-5"
-              placeholder="Search products, brands and categories"
-            />
-          </div>
-          <button className="search-btn text-white">Search</button>
-        </div>
+        <SearchBar />
         <div className="sign-btns d-flex gap-4">
           <Link to="/Cart" className="text-decoration-none cart-link">
             <img src={cartIcon} alt="" />

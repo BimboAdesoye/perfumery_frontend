@@ -41,7 +41,7 @@
 }
 
 .cart-item {
-  /* border-bottom: 1px solid #db9200; */
+  border-top: 2px solid #db9200;
 }
 
 .item-increase,
@@ -62,7 +62,7 @@
   font-family: Playfair Display;
   font-weight: 700;
   letter-spacing: 2.2px;
-  border-bottom: 2px solid #db9200;
+  /* border-bottom: 2px solid #db9200; */
 }
 
 .cart-img {
