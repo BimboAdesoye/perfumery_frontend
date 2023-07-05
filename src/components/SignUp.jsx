@@ -3,14 +3,29 @@ import NavbarAccent from "../layouts/NavbarAccent";
 import "../styles/SignUp.css";
 import eyeclose from "../assets/eye-close.svg";
 import eyeopen from "../assets/eye-open.svg";
+import axios from "axios";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [password, setPassword] = useState("");
+  const [verifyPassword, setVerifyPassword] = useState("");
   const [errors, setErrors] = useState({});
   const [reveal, setReveal] = useState(false);
+  const [reveal2, setReveal2] = useState(false);
+
+  // function handlePost(e) {
+  //   e.preventDefault();
+  //   axios.post("https://task-manager-9ie3.onrender.com/tasks/create", {
+  //     title,
+  //     description,
+  //     tag,
+  //     author,
+  //   });
+  // window.location.reload();
+  //   navigate("/Tasks");
+  // }
 
   const validateForm = () => {
     const errors = {};
@@ -37,12 +52,22 @@ const SignUp = () => {
       errors.password = "Password length must be greater than 5!";
     }
 
+    if (!verifyPassword) {
+      errors.verifyPassword = "Password is required!";
+    } else if (verifyPassword !== password) {
+      errors.verifyPassword = "Both passwords must match!";
+    }
+
     return errors;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+    const regData = { email, firstname, lastname, password, verifyPassword };
+    axios.post("http://localhost:2020/auth/register", regData);
+
+    // window.location.reload();
+
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length === 0) {
       console.log("Form is valid");
@@ -54,6 +79,10 @@ const SignUp = () => {
 
   const handleReveal = () => {
     setReveal(!reveal);
+  };
+
+  const handleReveal2 = () => {
+    setReveal2(!reveal2);
   };
 
   return (
@@ -86,6 +115,7 @@ const SignUp = () => {
               />
               {errors.email && <p className="error-message">{errors.email}</p>}
             </div>
+
             <div className="d-flex flex-column gap-1">
               <label htmlFor="firstname">FirstName</label>
               <input
@@ -99,6 +129,7 @@ const SignUp = () => {
                 <p className="error-message">{errors.firstname}</p>
               )}
             </div>
+
             <div className="d-flex flex-column gap-1">
               <label htmlFor="lastname">LastName</label>
               <input
@@ -112,6 +143,7 @@ const SignUp = () => {
                 <p className="error-message">{errors.lastname}</p>
               )}
             </div>
+
             <div className="d-flex flex-column gap-1 password-input">
               <label htmlFor="password">Password</label>
               <input
@@ -132,6 +164,28 @@ const SignUp = () => {
                 <p className="error-message">{errors.password}</p>
               )}
             </div>
+
+            <div className="d-flex flex-column gap-1 password-input">
+              <label htmlFor="password">Confirm Password</label>
+              <input
+                className=""
+                type={reveal ? "text" : "password"}
+                id="verifyPassword "
+                placeholder="Placeholder"
+                value={verifyPassword}
+                onChange={(e) => setVerifyPassword(e.target.value)}
+              />
+              <img
+                className="reveal-image"
+                onClick={handleReveal2}
+                src={reveal2 ? eyeclose : eyeopen}
+                alt=""
+              />
+              {errors.verifyPassword && (
+                <p className="error-message">{errors.verifyPassword}</p>
+              )}
+            </div>
+
             <div className="d-flex flex-column gap-1">
               <p>
                 By providing my information, I agree to Fame Perfumery’s

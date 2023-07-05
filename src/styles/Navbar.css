@@ -31,12 +31,14 @@
 .sign-in {
   background-color: white;
   border: 1px solid #db9200;
+  width: 100%;
 }
 
 .sign-up {
   background-color: #db9200;
   color: white;
   outline: 1px solid black;
+  width: 100%;
 }
 
 .search-div {
@@ -126,5 +128,13 @@
   .nav {
     width: 90%;
     margin: auto;
+  }
+
+  .sign-in {
+    font-size: 14px;
+  }
+
+  .sign-up {
+    font-size: 14px;
   }
 }
