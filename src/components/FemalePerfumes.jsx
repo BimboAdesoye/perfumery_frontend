@@ -52,8 +52,8 @@ const FemalePerfumes = () => {
                   </Link>
                   <img className="heart-icon" src={heartIcon} alt="" />
                 </div>
-                <div className="body d-flex flex-column gap-3 p-2">
-                  <div className="mt-3">
+                <div className="body d-flex flex-column gap-3 px-2">
+                  <div className="">
                     <p className="product-title mb-0">{title}</p>
                     <p className="product-label mb-0">{label}</p>
                   </div>
@@ -65,7 +65,7 @@ const FemalePerfumes = () => {
                     />
                     <p className="product-price mb-0">{price}</p>
                   </div>
-                  <span className="d-flex gap-5 align-items-center">
+                  <span className="d-flex justify-content-between align-items-center">
                     <img src={fiveStar} alt="" />
                     <p className="mb-0 product-review">50 reviews</p>
                   </span>

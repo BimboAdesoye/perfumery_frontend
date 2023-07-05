@@ -39,7 +39,7 @@ const MalePerfumes = () => {
             <img className="arrow-icon" src={arrowIcon} alt="" />
           </div>
         </div>
-        <div className="my-4 py-3 px-4 male-section">
+        <div className="my-4 py-3 px-4 male-section ">
           {data.map((datum) => {
             const { image, title, label, price, _id } = datum;
             return (
@@ -53,16 +53,20 @@ const MalePerfumes = () => {
                   </Link>
                   <img className="heart-icon" src={heartIcon} alt="" />
                 </div>
-                <div className="body d-flex flex-column gap-3 p-2">
-                  <div className="mt-3">
+                <div className="body d-flex flex-column gap-3 px-2">
+                  <div className="">
                     <p className="product-title mb-0">{title}</p>
                     <p className="product-label mb-0">{label}</p>
                   </div>
                   <div className="d-flex align-items-center gap-1">
-                    <img className="product-price-icon" src={nairaIcon} alt="" />
+                    <img
+                      className="product-price-icon"
+                      src={nairaIcon}
+                      alt=""
+                    />
                     <p className="product-price mb-0">{price}</p>
                   </div>
-                  <span className="d-flex gap-5 align-items-center">
+                  <span className="d-flex justify-content-between align-items-center">
                     <img src={fiveStar} alt="" />
                     <p className="mb-0 product-review">50 reviews</p>
                   </span>
