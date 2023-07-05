@@ -10,9 +10,6 @@ import CartContext from "../Hooks/CartContext";
 import SearchBar from "../components/SearchBar";
 
 const Navbar = () => {
-  // const [searchTerm, setSearchTerm] = useState("");
-  // const [searchResults, setSearchResults] = useState([]);
-  // const [searchButtonClicked, setSearchButtonClicked] = useState(false);
   const { cartItems } = useContext(CartContext);
   const [dropped, setDropped] = useState(false);
   const navigate = useNavigate();
@@ -24,43 +21,6 @@ const Navbar = () => {
   function signin() {
     navigate("./SignIn");
   }
-
-  // function handleSearch() {
-  //   cartItems
-  //     .filter((item) => {
-  //       if (searchTerm == "") {
-  //         return item;
-  //       } else if (
-  //         item.title.toLowerCase().includes(searchTerm.toLowerCase())
-  //       ) {
-  //         return item;
-  //       }
-  //     })
-  //     .map((item) => {
-  //       const { _id, title } = item;
-  //       return (
-  //         <Link key={_id} to={`/SingleProduct/${_id}`}>
-  //           {title}
-  //         </Link>
-  //       );
-  //     });
-  // }
-
-  // const handleSearchButtonClick = () => {
-  //   setSearchButtonClicked(true);
-  //   handleSearch();
-  // };
-
-  // function handleSearch() {
-  //   if (searchTerm === "" && !searchButtonClicked) {
-  //     setSearchResults([]);
-  //     return;
-  //   }
-  //   const filteredItems = cartItems.filter((item) =>
-  //     item.title.toLowerCase().includes(searchTerm.toLowerCase())
-  //   );
-  //   setSearchResults(filteredItems);
-  // }
 
   const genericClass = "dropdown";
 
