@@ -12,7 +12,7 @@ import Cart from "./components/Cart";
 import Carousel from "./components/Carousel2";
 import axios from "axios";
 
-axios.defaults.withCredentials = true
+// axios.defaults.withCredentials = true
 function App() {
   return (
     <>

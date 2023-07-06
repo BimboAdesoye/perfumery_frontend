@@ -68,7 +68,7 @@ const Hero = () => {
           placeholder="Search products, brands and categories"
         />
       </div>
-      <div className="container hero-banner row h-50 m-auto">
+      <div className="container hero-banner row h-50 m-auto border-accent p-0">
         <div className=" col-lg-2 bg-white content p-0 rounded d-none d-md-none d-lg-block">
           <h3 className="text-center banner-heading">Categories</h3>
           <ul className="text-center p-0 d-flex flex-column banner-list">
@@ -98,7 +98,7 @@ const Hero = () => {
             </li>
           </ul>
         </div>
-        <div className="rounded col-lg-7 bg-white content">
+        <div className="rounded col-lg-7 bg-white content border-accent">
           <Carousel
             showThumbs={false}
             showArrows={false}
@@ -111,7 +111,7 @@ const Hero = () => {
             {renderSlides}
           </Carousel>
         </div>
-        <div className="border col-lg-3 content banner-images p-0 d-none d-md-none d-lg-grid">
+        <div className="border col-lg-3 content banner-images p-0 d-none d-md-none d-lg-grid border-accent">
           <div
             onMouseEnter={handleHidden}
             onMouseLeave={handleHidden}
@@ -150,7 +150,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className="container d-none d-lg-block my-5 d-lg-flex justify-content-between">
+      <div className="container d-none d-lg-block my-5 d-lg-flex justify-content-between p-0">
         <div className="d-flex align-items-center gap-3">
           <img src={truck} alt="" />
           <div className="">
