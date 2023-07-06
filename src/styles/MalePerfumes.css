@@ -10,7 +10,7 @@
 
 .male-section {
   display: grid;
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: repeat(4, 300px);
   column-gap: 1rem;
   overflow: hidden;
   overflow-x: auto;
@@ -108,5 +108,16 @@
 @media screen and (max-width: 992px) {
   .male-section .product {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .five-stars {
+    width: 15.677px;
+    height: 16.461px;
+  }
+
+  .male-section {
+    grid-template-columns: repeat(4, 250px);
   }
 }

@@ -1,6 +1,8 @@
 import UseFetch from "../Hooks/UseFetch";
-import fiveStar from "../assets/Perfumery5starIcon.svg";
+// import fiveStar from "../assets/Perfumery5starIcon.svg";
 import cart from "../assets/PerfumeryCart.svg";
+import star from "../assets/perfumery Star 1.svg";
+import star2 from "../assets/perfumery Star 5.svg";
 import "../styles/MalePerfumes.css";
 import heartIcon from "../assets/PerfumeryHeartIcon.svg";
 import arrowIcon from "../assets/PerfumeryArrowIcon.svg";
@@ -66,7 +68,13 @@ const ComboPerfumes = () => {
                     <p className="product-price mb-0">{price}</p>
                   </div>
                   <span className="d-flex justify-content-between align-items-center">
-                    <img src={fiveStar} alt="" />
+                    <div className="d-flex five-stars">
+                      <img className="five-star" src={star} alt="" />
+                      <img className="five-star" src={star} alt="" />
+                      <img className="five-star" src={star} alt="" />
+                      <img className="five-star" src={star} alt="" />
+                      <img className="five-star" src={star2} alt="" />
+                    </div>
                     <p className="mb-0 product-review">50 reviews</p>
                   </span>
                   <span className="d-none d-md-block d-lg-block d-md-flex d-lg-flex justify-content-between align-items-center mt-1">
