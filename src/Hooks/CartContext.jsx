@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from "react";
+import axios from "axios";
 
 const CartContext = createContext();
 
@@ -7,11 +8,20 @@ const cartItemsFromLocalStorage =
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(cartItemsFromLocalStorage);
+  const [loggedIn, setLoggedIn] = useState(undefined);
+
+  // Logged In function
+  async function getLoggedIn() {
+    const loggedInRes = await axios.get("http://localhost:2020/auth/loggedIn");
+    setLoggedIn(loggedInRes.data);
+  }
 
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    getLoggedIn();
   }, [cartItems]);
 
+  // Add to Cart function
   const handleAddToCart = (product) => {
     const selectedItem = cartItems.find((item) => item._id === product._id);
     if (selectedItem) {
@@ -28,6 +38,7 @@ export const CartProvider = ({ children }) => {
     console.log(cartItems);
   };
 
+  // Increase item function
   const handleIncrease = (product) => {
     const selectedItem = cartItems.find((item) => item._id === product._id);
     if (selectedItem) {
@@ -41,6 +52,7 @@ export const CartProvider = ({ children }) => {
     }
   };
 
+  // Decrease item function
   const handleDecrease = (product) => {
     const selectedItem = cartItems.find((item) => item._id === product._id);
     if (selectedItem.quantity === 1) {
@@ -58,17 +70,17 @@ export const CartProvider = ({ children }) => {
     }
   };
 
+
+  // Remove Item function
   const handleRemoveItem = (product) => {
     setCartItems(cartItems.filter((oneItem) => oneItem._id !== product._id));
   };
 
+
+  // Total price function 
   const totalPrice = cartItems.reduce((total, item) => {
     return total + item.price * item.quantity;
   }, 0);
-  // let total = 0;
-  // const totalPrice = cartItems.forEach((item) => {
-  //   return total += item.price * item.quantity;
-  // });
 
   return (
     <CartContext.Provider
@@ -80,6 +92,8 @@ export const CartProvider = ({ children }) => {
         handleDecrease,
         handleRemoveItem,
         totalPrice,
+        loggedIn,
+        getLoggedIn,
       }}
     >
       {children}

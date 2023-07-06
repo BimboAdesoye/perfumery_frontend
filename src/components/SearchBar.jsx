@@ -33,11 +33,7 @@ const SearchBar = () => {
           onChange={handleFilter}
         />
       </div>
-      <button
-        className="search-btn text-white"
-      >
-        Search
-      </button>
+      <button className="search-btn text-white">Search</button>
       {filteredData.length != 0 && (
         <div className="search-results">
           {filteredData.map((item) => {

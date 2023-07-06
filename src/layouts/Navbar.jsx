@@ -10,7 +10,7 @@ import CartContext from "../Hooks/CartContext";
 import SearchBar from "../components/SearchBar";
 
 const Navbar = () => {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, loggedIn } = useContext(CartContext);
   const [dropped, setDropped] = useState(false);
   const navigate = useNavigate();
 
@@ -45,16 +45,22 @@ const Navbar = () => {
               <img className="dropdownIcon" src={dropdownIcon} alt="" />
             </div>
             <div className="sign-btns dropwdown-content">
-              <button className="sign-in" onClick={signin}>
-                <Link to="/SignIn" className="text-decoration-none text-black">
-                  Sign In
-                </Link>
-              </button>
-              <button className="sign-up mt-3">
-                <Link to="/SignUp" className="text-decoration-none text-black sign-up-btn">
-                  Sign Up
-                </Link>
-              </button>
+              {loggedIn === false &&
+               (
+              <>
+                <button className="sign-in" onClick={signin}>
+                  <Link to="/SignIn" className="text-decoration-none text-black">
+                    Sign In
+                  </Link>
+                </button>
+                <button className="sign-up mt-3">
+                  <Link to="/SignUp" className="text-decoration-none text-black sign-up-btn">
+                    Sign Up
+                  </Link>
+                </button>
+              </>
+               )
+              }
             </div>
           </div>
         </div>

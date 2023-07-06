@@ -3,29 +3,20 @@ import NavbarAccent from "../layouts/NavbarAccent";
 import "../styles/SignUp.css";
 import eyeclose from "../assets/eye-close.svg";
 import eyeopen from "../assets/eye-open.svg";
-import axios from "axios";
+// import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [password, setPassword] = useState("");
-  const [verifyPassword, setVerifyPassword] = useState("");
+  const [passwordVerify, setPasswordVerify] = useState("");
   const [errors, setErrors] = useState({});
   const [reveal, setReveal] = useState(false);
   const [reveal2, setReveal2] = useState(false);
 
-  // function handlePost(e) {
-  //   e.preventDefault();
-  //   axios.post("https://task-manager-9ie3.onrender.com/tasks/create", {
-  //     title,
-  //     description,
-  //     tag,
-  //     author,
-  //   });
-  // window.location.reload();
-  //   navigate("/Tasks");
-  // }
+  const navigate = useNavigate();
 
   const validateForm = () => {
     const errors = {};
@@ -52,29 +43,45 @@ const SignUp = () => {
       errors.password = "Password length must be greater than 5!";
     }
 
-    if (!verifyPassword) {
-      errors.verifyPassword = "Password is required!";
-    } else if (verifyPassword !== password) {
-      errors.verifyPassword = "Both passwords must match!";
+    if (!passwordVerify) {
+      errors.passwordVerify = "Password is required!";
+    } else if (passwordVerify !== password) {
+      errors.passwordVerify = "Both passwords must match!";
     }
 
     return errors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const regData = { email, firstname, lastname, password, verifyPassword };
-    axios.post("http://localhost:2020/auth/register", regData);
-
-    // window.location.reload();
 
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length === 0) {
       console.log("Form is valid");
+      // alert("Registration completed");
     } else {
       setErrors(validationErrors);
     }
-    console.log(Object.keys(validationErrors));
+
+    const regData = { email, firstname, lastname, password, passwordVerify };
+
+    const res = await fetch("http://localhost:2020/auth/register", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(regData),
+      // navigate('/SignIn')
+    });
+
+    const data = await res.json();
+    console.log(data);
+
+    // await axios.post(
+    //     "http://localhost:2020/auth/register",
+    //     regData
+    //   );
+    // Navigate("/SignIn");
   };
 
   const handleReveal = () => {
@@ -172,8 +179,8 @@ const SignUp = () => {
                 type={reveal ? "text" : "password"}
                 id="verifyPassword "
                 placeholder="Placeholder"
-                value={verifyPassword}
-                onChange={(e) => setVerifyPassword(e.target.value)}
+                value={passwordVerify}
+                onChange={(e) => setPasswordVerify(e.target.value)}
               />
               <img
                 className="reveal-image"

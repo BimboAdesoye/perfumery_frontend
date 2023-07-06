@@ -1,15 +1,17 @@
 import "../styles/SignIn.css";
 import NavbarAccent from "../layouts/NavbarAccent";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import eyeclose from "../assets/eye-close.svg";
 import eyeopen from "../assets/eye-open.svg";
+import axios from "axios";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
   const [reveal, setReveal] = useState(false);
+  const navigate = useNavigate();
 
   const validateForm = () => {
     const errors = {};
@@ -32,14 +34,26 @@ const SignIn = () => {
     return errors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const LogData = { email, password };
 
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length === 0) {
       console.log("Form is valid");
     } else {
       setErrors(validationErrors);
+    }
+
+    try {
+      const res = await axios.post("http://localhost:2020/auth/login", LogData);
+      navigate("/");
+      if (email || password) {
+        alert("logged in");
+      }
+      console.log(res);
+    } catch (error) {
+      console.log(error);
     }
   };
 

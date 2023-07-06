@@ -36,10 +36,10 @@ const PasswordRecovery = () => {
     }
   };
 
-   const handleReveal = () => {
+  const handleReveal = () => {
     setReveal(!reveal);
   };
-   const handleReveal2 = () => {
+  const handleReveal2 = () => {
     setReveal2(!reveal2);
   };
   return (
@@ -65,7 +65,7 @@ const PasswordRecovery = () => {
                 value={newPassword}
                 onChange={(e) => SetnewPassword(e.target.value)}
               />
-               <img
+              <img
                 className="reveal-image"
                 onClick={handleReveal}
                 src={reveal ? eyeclose : eyeopen}
@@ -84,7 +84,7 @@ const PasswordRecovery = () => {
                 value={confirmNewPassword}
                 onChange={(e) => setConfirmNewPassword(e.target.value)}
               />
-               <img
+              <img
                 className="reveal-image"
                 onClick={handleReveal2}
                 src={reveal2 ? eyeclose : eyeopen}
