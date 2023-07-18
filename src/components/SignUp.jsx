@@ -3,7 +3,7 @@ import NavbarAccent from "../layouts/NavbarAccent";
 import "../styles/SignUp.css";
 import eyeclose from "../assets/eye-close.svg";
 import eyeopen from "../assets/eye-open.svg";
-// import axios from "axios";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
@@ -63,25 +63,24 @@ const SignUp = () => {
       setErrors(validationErrors);
     }
 
-    const regData = { email, firstname, lastname, password, passwordVerify };
+    try {
+      const regData = { email, firstname, lastname, password, passwordVerify };
 
-    const res = await fetch("http://localhost:2020/auth/register", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(regData),
-      // navigate('/SignIn')
-    });
-
-    const data = await res.json();
-    console.log(data);
-
-    // await axios.post(
-    //     "http://localhost:2020/auth/register",
-    //     regData
-    //   );
-    // Navigate("/SignIn");
+      const { data } = await axios.post(
+        "http://localhost:2020/auth/register",
+        regData
+      );
+      console.log(data);
+      if (data.token) {
+        localStorage.setItem("token", data.token);
+        alert("Registration successful");
+        navigate("/SignIn");
+      }
+    } catch (error) {
+      if (error) {
+        alert(error.response.data.errMsg);
+      }
+    }
   };
 
   const handleReveal = () => {

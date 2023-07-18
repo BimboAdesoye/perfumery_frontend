@@ -1,12 +1,14 @@
 import "../styles/SignIn.css";
 import NavbarAccent from "../layouts/NavbarAccent";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import eyeclose from "../assets/eye-close.svg";
 import eyeopen from "../assets/eye-open.svg";
 import axios from "axios";
+import CartContext from "../Hooks/CartContext";
 
 const SignIn = () => {
+  const { setLoggedIn } = useContext(CartContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
@@ -46,13 +48,21 @@ const SignIn = () => {
     }
 
     try {
-      const res = await axios.post("http://localhost:2020/auth/login", LogData);
-      navigate("/");
-      if (email || password) {
+      const { data } = await axios.post(
+        "http://localhost:2020/auth/login",
+        LogData
+      );
+      if (data.token) {
+        localStorage.setItem("token", data.token);
         alert("logged in");
+        navigate("/");
+        setLoggedIn(true);
       }
-      console.log(res);
+      console.log(data);
     } catch (error) {
+      if (error) {
+        alert(error.response.data.errMsg);
+      }
       console.log(error);
     }
   };

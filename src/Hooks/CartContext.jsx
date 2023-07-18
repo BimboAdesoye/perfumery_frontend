@@ -9,12 +9,22 @@ const cartItemsFromLocalStorage =
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(cartItemsFromLocalStorage);
   const [loggedIn, setLoggedIn] = useState(undefined);
+  const token = localStorage.getItem("token");
 
   // Logged In function
   async function getLoggedIn() {
-    const loggedInRes = await axios.get("http://localhost:2020/auth/loggedIn");
+    const loggedInRes = await axios.get("http://localhost:2020/auth/loggedIn", {
+      headers: { Authorization: token },
+    });
+    console.log(loggedInRes.data);
     setLoggedIn(loggedInRes.data);
   }
+
+  // Logged Out function
+  const Logout = () => {
+    localStorage.removeItem("token");
+    setLoggedIn(false);
+  };
 
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
@@ -38,7 +48,7 @@ export const CartProvider = ({ children }) => {
     console.log(cartItems);
   };
 
-  // Increase item function
+  // Increase item quantity function
   const handleIncrease = (product) => {
     const selectedItem = cartItems.find((item) => item._id === product._id);
     if (selectedItem) {
@@ -52,7 +62,7 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  // Decrease item function
+  // Decrease item quantity function
   const handleDecrease = (product) => {
     const selectedItem = cartItems.find((item) => item._id === product._id);
     if (selectedItem.quantity === 1) {
@@ -70,14 +80,12 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-
   // Remove Item function
   const handleRemoveItem = (product) => {
     setCartItems(cartItems.filter((oneItem) => oneItem._id !== product._id));
   };
 
-
-  // Total price function 
+  // Total price function
   const totalPrice = cartItems.reduce((total, item) => {
     return total + item.price * item.quantity;
   }, 0);
@@ -94,6 +102,7 @@ export const CartProvider = ({ children }) => {
         totalPrice,
         loggedIn,
         getLoggedIn,
+        Logout
       }}
     >
       {children}

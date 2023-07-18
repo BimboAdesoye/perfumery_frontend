@@ -10,7 +10,7 @@ import CartContext from "../Hooks/CartContext";
 import SearchBar from "../components/SearchBar";
 
 const Navbar = () => {
-  const { cartItems, loggedIn } = useContext(CartContext);
+  const { cartItems, loggedIn, Logout } = useContext(CartContext);
   const [dropped, setDropped] = useState(false);
   const navigate = useNavigate();
 
@@ -44,24 +44,66 @@ const Navbar = () => {
               <img src={profileIcon} alt="" />
               <img className="dropdownIcon" src={dropdownIcon} alt="" />
             </div>
-            <div className="sign-btns dropwdown-content">
-              {loggedIn === false &&
-               (
+            {/* {loggedIn === false && (
               <>
+                <div className="sign-btns dropwdown-content">
+                  <button className="sign-in" onClick={signin}>
+                    <Link
+                      to="/SignIn"
+                      className="text-decoration-none text-black"
+                    >
+                      Sign In
+                    </Link>
+                  </button>
+                  <button className="sign-up mt-3">
+                    <Link
+                      to="/SignUp"
+                      className="text-decoration-none text-black sign-up-btn"
+                    >
+                      Sign Up
+                    </Link>
+                  </button>
+                </div>
+              </>
+            )} */}
+            {loggedIn ? (
+              <div className="sign-btns dropdown-content">
+                <button onClick={Logout} className="sign-in">
+                  <Link
+                    className="text-decoration-none text-black"
+                  >
+                    Log out
+                  </Link>
+                </button>
+                <button className="sign-up mt-3">
+                  <Link
+                    to="/Order"
+                    className="text-decoration-none text-black sign-up-btn"
+                  >
+                    Order
+                  </Link>
+                </button>
+              </div>
+            ) : (
+              <div className="sign-btns dropwdown-content">
                 <button className="sign-in" onClick={signin}>
-                  <Link to="/SignIn" className="text-decoration-none text-black">
+                  <Link
+                    to="/SignIn"
+                    className="text-decoration-none text-black"
+                  >
                     Sign In
                   </Link>
                 </button>
                 <button className="sign-up mt-3">
-                  <Link to="/SignUp" className="text-decoration-none text-black sign-up-btn">
+                  <Link
+                    to="/SignUp"
+                    className="text-decoration-none text-black sign-up-btn"
+                  >
                     Sign Up
                   </Link>
                 </button>
-              </>
-               )
-              }
-            </div>
+              </div>
+            )}
           </div>
         </div>
       </nav>
