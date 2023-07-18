@@ -49,7 +49,7 @@ const SignIn = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:2020/auth/login",
+        "https://perfumery.onrender.com/auth/login",
         LogData
       );
       if (data.token) {

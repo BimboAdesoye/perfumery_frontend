@@ -67,7 +67,7 @@ const SignUp = () => {
       const regData = { email, firstname, lastname, password, passwordVerify };
 
       const { data } = await axios.post(
-        "http://localhost:2020/auth/register",
+        "https://perfumery.onrender.com/auth/register",
         regData
       );
       console.log(data);
