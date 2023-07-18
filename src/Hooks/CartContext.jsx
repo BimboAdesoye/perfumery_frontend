@@ -13,9 +13,12 @@ export const CartProvider = ({ children }) => {
 
   // Logged In function
   async function getLoggedIn() {
-    const loggedInRes = await axios.get("http://localhost:2020/auth/loggedIn", {
-      headers: { Authorization: token },
-    });
+    const loggedInRes = await axios.get(
+      "https://perfumery.onrender.com/auth/loggedIn",
+      {
+        headers: { Authorization: token },
+      }
+    );
     console.log(loggedInRes.data);
     setLoggedIn(loggedInRes.data);
   }
@@ -102,7 +105,7 @@ export const CartProvider = ({ children }) => {
         totalPrice,
         loggedIn,
         getLoggedIn,
-        Logout
+        Logout,
       }}
     >
       {children}
