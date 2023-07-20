@@ -72,11 +72,10 @@
   position: relative;
 }
 
-.dropwdown-content {
+.dropdown-content {
   position: absolute;
   width: 10rem;
   right: 0.2rem;
-  /* top: 0px; */
   border: 2px solid #db9200;
   border-radius: 10px;
   padding: 1rem;
@@ -89,8 +88,12 @@
   transform: rotate(0deg);
 }
 
-.rotated .dropwdown-content {
+.rotated .dropdown-content {
   display: block;
+}
+
+.profile-photo {
+  width: 25px;
 }
 
 .cart-link {

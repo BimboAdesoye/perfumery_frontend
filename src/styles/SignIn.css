@@ -25,7 +25,8 @@
   border: none;
 }
 
-form input {
+form input,
+form .form-select {
   border-radius: 6px;
   border: 1px solid #d9d9d9;
   padding: 11px 15px;

@@ -10,6 +10,7 @@ import PasswordRecovery from "./components/PasswordRecovery";
 import SingleProduct from "./pages/SingleProduct";
 import Cart from "./components/Cart";
 import Carousel from "./components/Carousel2";
+import Order from "./components/Order";
 // import axios from "axios";
 
 // axios.defaults.withCredentials = true
@@ -27,6 +28,7 @@ function App() {
           <Route path="/PasswordRecovery" element={<PasswordRecovery />} />
           <Route path="/SingleProduct/:id" element={<SingleProduct />} />
           <Route path="/Cart" element={<Cart />} />
+          <Route path="/Order" element={<Order />} />
         </Routes>
         {/* <Footer></Footer> */}
       </BrowserRouter>

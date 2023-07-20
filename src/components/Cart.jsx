@@ -8,14 +8,17 @@ import gift from "../assets/PerfumerycartgiftIcon.svg";
 import arrowdown from "../assets/PerfumeryCartArrowdownIcon.svg";
 import nairaIcon from "../assets/perfumerynairaIcon.svg";
 import CartContext from "../Hooks/CartContext";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
+  const navigate = useNavigate();
   const {
     cartItems,
     handleIncrease,
     handleDecrease,
     totalPrice,
     handleRemoveItem,
+    loggedIn,
   } = useContext(CartContext);
 
   console.log(cartItems);
@@ -26,6 +29,14 @@ const Cart = () => {
       behavior: "smooth",
     });
   }, []);
+
+  const handleClick = () => {
+    if (loggedIn) {
+      navigate("/Order");
+    } else {
+      alert("You have to  be logged in to view this page");
+    }
+  };
 
   return (
     <div className="basket">
@@ -141,7 +152,7 @@ const Cart = () => {
               </div>
               <div className="text-center">
                 <p className="vat">VAT and shipping calculated at checkout</p>
-                <button>Check Out</button>
+                <button onClick={handleClick}>Check Out</button>
               </div>
             </div>
           </div>

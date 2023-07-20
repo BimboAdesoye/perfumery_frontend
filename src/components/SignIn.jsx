@@ -140,3 +140,75 @@ const SignIn = () => {
 };
 
 export default SignIn;
+
+{
+  /* <div className="d-flex justify-content-center align-items-center flex-column parent">
+            <form action="">
+              <label htmlFor="firstname">firstname:</label>
+              <br />
+              <input
+                type="text"
+                id="firstname"
+                value={firstname}
+                onChange={(e) => setFirstName(e.target.value)}
+              />
+              <br />
+              <br />
+              <label htmlFor="lastname">lastname:</label>
+              <br />
+              <input
+                type="text"
+                id="lastname"
+                value={lastname}
+                onChange={(e) => setLastName(e.target.value)}
+              />
+              <br />
+              <br />
+              <label htmlFor="mobile">mobile:</label>
+              <br />
+              <input
+                type="number"
+                id="mobile"
+                value={mobile}
+                onChange={(e) => setMobile(e.target.value)}
+              />
+              <br />
+              <br />
+              <label htmlFor="address">Address:</label>
+              <br />
+              <input
+                type="text"
+                id="address"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+              />
+              <br />
+              <br />
+              <label htmlFor="">payment mode:</label>
+              <select
+                name=""
+                id=""
+                onChange={(e) => {
+                  setPayment(e.target.value);
+                }}
+              >
+                {PaymentOptions.map((singleOption) => {
+                  return (
+                    <option
+                      key={singleOption}
+                      value={singleOption}
+                      className="form-select"
+                    >
+                      {singleOption}
+                    </option>
+                  );
+                })}
+              </select>
+              <br />
+              <br />
+              <button className="btn btn-primary" onClick={handleOrderSubmit}>
+                submit
+              </button>
+            </form>
+          </div> */
+}

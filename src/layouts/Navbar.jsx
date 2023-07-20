@@ -44,28 +44,6 @@ const Navbar = () => {
               <img src={profileIcon} alt="" />
               <img className="dropdownIcon" src={dropdownIcon} alt="" />
             </div>
-            {/* {loggedIn === false && (
-              <>
-                <div className="sign-btns dropwdown-content">
-                  <button className="sign-in" onClick={signin}>
-                    <Link
-                      to="/SignIn"
-                      className="text-decoration-none text-black"
-                    >
-                      Sign In
-                    </Link>
-                  </button>
-                  <button className="sign-up mt-3">
-                    <Link
-                      to="/SignUp"
-                      className="text-decoration-none text-black sign-up-btn"
-                    >
-                      Sign Up
-                    </Link>
-                  </button>
-                </div>
-              </>
-            )} */}
             {loggedIn ? (
               <div className="sign-btns dropdown-content">
                 <button onClick={Logout} className="sign-in">
@@ -85,7 +63,7 @@ const Navbar = () => {
                 </button>
               </div>
             ) : (
-              <div className="sign-btns dropwdown-content">
+              <div className="sign-btns dropdown-content">
                 <button className="sign-in" onClick={signin}>
                   <Link
                     to="/SignIn"
