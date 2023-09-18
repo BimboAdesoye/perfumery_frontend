@@ -23,7 +23,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="search-panel d-lg-flex d-md-flex d-none d-md-block d-lg-block  gap-2">
+    <div className="search-panel d-lg-flex d-md-flex d-none d-md-block d-lg-block gap-2">
       <div className="w-100 d-flex search-div">
         <img className="searchIcon" src={searchIcon} alt="" />
         <input
@@ -43,9 +43,12 @@ const SearchBar = () => {
                 key={item._id}
                 to={`/SingleProduct/${item._id}`}
               >
-                <p>
-                  {item.title} {item.label}
-                </p>
+                <div className="d-flex gap-2">
+                  <img className="search-img mb-2 rounded" src={item.image} alt="" />
+                  <p>
+                    {item.title} {item.label}
+                  </p>
+                </div>
               </Link>
             );
           })}

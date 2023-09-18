@@ -27,7 +27,7 @@ const MalePerfumes = () => {
   };
 
   return (
-    <div className="container p-0">
+    <div className="accent-container px-2">
       <div className="bg-white">
         <div className="male-header p-3 d-flex justify-content-between">
           <div className="d-flex gap-2">
@@ -36,7 +36,7 @@ const MalePerfumes = () => {
             {error && <h2>{error.message}</h2>}
           </div>
           <div className="d-flex gap-2 align-items-center view-more">
-            <p className="mb-0">View more</p>
+            <Link to={'/Male'} className="text-decoration-none">View more</Link>
             <img className="arrow-icon" src={arrowIcon} alt="" />
           </div>
         </div>

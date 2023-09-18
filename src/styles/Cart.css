@@ -66,14 +66,15 @@
 }
 
 .cart-img {
-  width: 57.226px;
+  /* width: 57.226px; */
+  width: 70px;
   height: 98px;
   flex-shrink: 0;
 }
 
 .cart-img-title {
   color: #000;
-  font-size: 12px;
+  font-size: 15px;
   font-family: Poppins;
   font-weight: 500;
   letter-spacing: 1.32px;

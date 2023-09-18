@@ -68,21 +68,32 @@ const Hero = () => {
           placeholder="Search products, brands and categories"
         />
       </div>
-      <div className="container hero-banner row h-50 m-auto border-accent p-0">
+      <div className="accent-container hero-banner row h-50 m-auto border-accent p-0">
         <div className=" col-lg-2 bg-white content p-0 rounded d-none d-md-none d-lg-block">
           <h3 className="text-center banner-heading">Categories</h3>
           <ul className="text-center p-0 d-flex flex-column banner-list">
             <li className="list-unstyled">
-              <Link className="fw-bold text-decoration-none">All</Link>
+              <Link
+                to={"/AllPerfumes"}
+                className="fw-bold text-decoration-none"
+              >
+                All
+              </Link>
             </li>
             <li className="list-unstyled">
-              <Link className="text-decoration-none ">Male</Link>
+              <Link to={"/Male"} className="text-decoration-none ">
+                Male
+              </Link>
             </li>
             <li className="list-unstyled">
-              <Link className="text-decoration-none ">Female</Link>
+              <Link to={"/Female"} className="text-decoration-none ">
+                Female
+              </Link>
             </li>
             <li className="list-unstyled">
-              <Link className="text-decoration-none ">Combo Packages</Link>
+              <Link to={"/Combo"} className="text-decoration-none ">
+                Combo Packages
+              </Link>
             </li>
             <li className="list-unstyled">
               <Link className="text-decoration-none ">Designers Perfume</Link>
@@ -150,7 +161,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className="container d-none d-lg-block my-5 d-lg-flex justify-content-between p-0">
+      <div className="accent-container d-none d-lg-block my-5 d-lg-flex justify-content-between p-0">
         <div className="d-flex align-items-center gap-3">
           <img src={truck} alt="" />
           <div className="">

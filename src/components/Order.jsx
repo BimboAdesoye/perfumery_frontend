@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CartContext from "../Hooks/CartContext";
 import NavbarAccent from "../layouts/NavbarAccent";
 
@@ -137,7 +137,7 @@ const Order = () => {
                   </select>
                 </div>
                 <button type="submit" className="sign-in-btn mt-5">
-                  Submit
+                  Place Your Order
                 </button>
               </form>
             </div>

@@ -35,7 +35,9 @@ const FemalePerfumes = () => {
             {error && <h2>{error.message}</h2>}
           </div>
           <div className="d-flex gap-3 align-items-center view-more">
-            <p className="mb-0">View more</p>
+            <Link to={"/Female"} className="text-decoration-none">
+              View more
+            </Link>
             <img className="arrow-icon" src={arrowIcon} alt="" />
           </div>
         </div>

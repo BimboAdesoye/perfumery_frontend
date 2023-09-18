@@ -4,11 +4,12 @@ import FacebookIcon from "../assets/PerfumeryFacebookIcon.svg";
 import MailIcon from "../assets/perfumeryMailIcon.svg";
 import logo from "../assets/perfumeryfooterlogo.svg";
 import promo from "../assets/PerfumeryFooterPromoImg.svg";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <div className="footer pt-5">
-      <div className="container d-flex footer-content text-white">
+      <div className="accent-container d-flex footer-content text-white">
         <div className="div1 d-flex flex-column gap-4">
           <img
             className="img-fluid w-75 d-none d-md-block d-lg-block"
@@ -29,22 +30,34 @@ const Footer = () => {
           <h3 className="mb-4">Categories</h3>
           <ul className="d-flex flex-column gap-2">
             <li>
-              <span>Male Fragrances</span>
+              <Link to={"/Male"} className="text-decoration-none text-white">
+                Male Fragrances
+              </Link>
             </li>
             <li>
-              <span>Female Fragrances</span>
+              <Link to={"/Female"} className="text-decoration-none text-white">
+                Female Fragrances
+              </Link>
             </li>
             <li>
-              <span>Designer Perfumes</span>
+              <Link className="text-decoration-none text-white">
+                Designer Perfumes
+              </Link>
             </li>
             <li>
-              <span>Combo Packages</span>
+              <Link to={"/Combo"} className="text-decoration-none text-white">
+                Combo Packages
+              </Link>
             </li>
             <li>
-              <span>Reeds/Diffusers</span>
+              <Link className="text-decoration-none text-white">
+                Reeds/Diffusers
+              </Link>
             </li>
             <li>
-              <span>Scented Candles</span>
+              <Link className="text-decoration-none text-white">
+                Scented Candles
+              </Link>
             </li>
           </ul>
         </div>

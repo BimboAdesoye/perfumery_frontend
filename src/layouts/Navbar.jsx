@@ -26,7 +26,7 @@ const Navbar = () => {
 
   return (
     <div className="bg-white sticky-top">
-      <nav className="nav container d-flex justify-content-between align-items-center">
+      <nav className="nav accent-container d-flex justify-content-between align-items-center">
         <Link to="/">
           <img className="navbar-logo" src={Logo} alt="" />
         </Link>

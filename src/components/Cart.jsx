@@ -9,6 +9,7 @@ import arrowdown from "../assets/PerfumeryCartArrowdownIcon.svg";
 import nairaIcon from "../assets/perfumerynairaIcon.svg";
 import CartContext from "../Hooks/CartContext";
 import { useNavigate } from "react-router-dom";
+// import PayButton from "./PayButton";
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const Cart = () => {
     loggedIn,
   } = useContext(CartContext);
 
-  console.log(cartItems);
+  // console.log(cartItems);
 
   useEffect(() => {
     window.scrollTo({
@@ -31,11 +32,11 @@ const Cart = () => {
   }, []);
 
   const handleClick = () => {
-    if (loggedIn) {
-      navigate("/Order");
-    } else {
-      alert("You have to  be logged in to view this page");
-    }
+    navigate("/SignIn");
+  };
+
+  const handleRoute = () => {
+    navigate("/Order");
   };
 
   return (
@@ -97,7 +98,7 @@ const Cart = () => {
                           </div>
                           <p
                             onClick={() => handleRemoveItem(cartItem)}
-                            className="remove-btn mb-0"
+                            className="remove-btn mb-0 mt-2"
                           >
                             Remove
                           </p>
@@ -140,7 +141,7 @@ const Cart = () => {
             </div>
             <div className="checkout d-flex flex-column gap-4">
               <div className="one d-flex justify-content-between align-items-center pb-2">
-                <h6 className="mb-0 total">Total</h6>
+                <h6 className="mb-0 total">Subtotal</h6>
                 <span className="d-flex align-items-center total-price">
                   <img className="naira-checkout" src={nairaIcon} alt="" />
                   <p className="mb-0">{totalPrice}</p>
@@ -152,7 +153,12 @@ const Cart = () => {
               </div>
               <div className="text-center">
                 <p className="vat">VAT and shipping calculated at checkout</p>
-                <button onClick={handleClick}>Check Out</button>
+                {loggedIn ? (
+                  // <PayButton />
+                  <button onClick={handleRoute}>Check Out</button>
+                ) : (
+                  <button onClick={handleClick}>Login to Check Out</button>
+                )}
               </div>
             </div>
           </div>

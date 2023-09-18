@@ -5,6 +5,7 @@ import eyeclose from "../assets/eye-close.svg";
 import eyeopen from "../assets/eye-open.svg";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -193,13 +194,19 @@ const SignUp = () => {
             </div>
 
             <div className="d-flex flex-column gap-1">
-              <p>
+              <p className="mb-0">
                 By providing my information, I agree to Fame Perfumery’s
-                <a className="px-1" href="#">
+                <a className="px-1 " href="#">
                   Privacy Policy and Legal Statement
                 </a>
               </p>
             </div>
+
+            <div>
+              <span>Already have an account?</span>
+              <Link className="px-2" to={'/SignIn'}>Sign In</Link>
+            </div>
+
             <button type="submit" className="sign-in-btn">
               Create Account
             </button>

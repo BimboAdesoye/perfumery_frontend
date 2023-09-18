@@ -5,12 +5,10 @@
 .search-results {
   position: absolute;
   background-color: #db9200;
-  /* background-color: white; */
-  /* background: #F2EFEF; */
   z-index: 1;
   top: 45px;
   left: 1px;
-  border-radius: 3px;
+  border-radius: 5px;
   padding: 0.6rem 1rem;
   width: 81%;
   height: 200px;
@@ -33,4 +31,8 @@
 
 #clearBtn {
   cursor: pointer;
+}
+
+.search-img {
+  width: 50px;
 }

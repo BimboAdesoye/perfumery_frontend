@@ -11,9 +11,12 @@ import SingleProduct from "./pages/SingleProduct";
 import Cart from "./components/Cart";
 import Carousel from "./components/Carousel2";
 import Order from "./components/Order";
-// import axios from "axios";
+import AllPerfumes from "./categories/AllPerfumes";
+import Male from "./categories/Male";
+import Female from "./categories/Female";
+import Combo from "./categories/Combo";
+import CheckoutSuccess from "./components/CheckoutSuccess";
 
-// axios.defaults.withCredentials = true
 function App() {
   return (
     <>
@@ -29,6 +32,11 @@ function App() {
           <Route path="/SingleProduct/:id" element={<SingleProduct />} />
           <Route path="/Cart" element={<Cart />} />
           <Route path="/Order" element={<Order />} />
+          <Route path="/AllPerfumes" element={<AllPerfumes />} />
+          <Route path="/Male" element={<Male />} />
+          <Route path="/Female" element={<Female />} />
+          <Route path="/Combo" element={<Combo />} />
+          <Route path="/CheckoutSuccess" element={<CheckoutSuccess />} />
         </Routes>
         {/* <Footer></Footer> */}
       </BrowserRouter>
