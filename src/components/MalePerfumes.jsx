@@ -40,7 +40,7 @@ const MalePerfumes = () => {
             <img className="arrow-icon" src={arrowIcon} alt="" />
           </div>
         </div>
-        <div className="my-4 py-3 px-4 male-section ">
+        <div className="my-4 py-3 px-4 male-section">
           {data.map((datum) => {
             const { image, title, label, price, _id } = datum;
             return (

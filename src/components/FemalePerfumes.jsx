@@ -26,7 +26,7 @@ const FemalePerfumes = () => {
   };
 
   return (
-    <div className="container my-5 p-0">
+    <div className="accent-container my-5 p-0">
       <div className="bg-white">
         <div className="male-header p-3 d-flex justify-content-between">
           <div className="d-flex gap-2">

@@ -56,7 +56,6 @@ const SignIn = () => {
         localStorage.setItem("token", data.token);
         alert("logged in");
         navigate("/");
-        // window.loca
         setLoggedIn(true);
       }
       console.log(data);

@@ -204,7 +204,9 @@ const SignUp = () => {
 
             <div>
               <span>Already have an account?</span>
-              <Link className="px-2" to={'/SignIn'}>Sign In</Link>
+              <Link className="px-2" to={"/SignIn"}>
+                Sign In
+              </Link>
             </div>
 
             <button type="submit" className="sign-in-btn">

@@ -22,7 +22,7 @@ export const CartProvider = ({ children }) => {
     console.log(loggedInRes.data);
     setLoggedIn(loggedInRes.data);
   }
-
+ 
   // Logged Out function
   const Logout = () => {
     localStorage.removeItem("token");
@@ -114,3 +114,4 @@ export const CartProvider = ({ children }) => {
 };
 
 export default CartContext;
+ 
